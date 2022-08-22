@@ -1,0 +1,4 @@
+com\sales\app\api\factory\RemoteAppUserFallbackFactory.class
+com\sales\app\api\domain\AppUser.class
+com\sales\app\api\factory\RemoteAppUserFallbackFactory$1.class
+com\sales\app\api\RemoteAppUserService.class

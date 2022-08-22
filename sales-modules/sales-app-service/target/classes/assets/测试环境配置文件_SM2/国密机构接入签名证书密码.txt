@@ -1,0 +1,2 @@
+机构接入国密签名证书acp_test_sign_inst.sm2密码为8个1
+商户接入国密签名证书acp_test_sign.sm2密码为6个1

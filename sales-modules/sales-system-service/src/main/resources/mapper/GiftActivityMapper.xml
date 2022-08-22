@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sales.system.mapper.GiftActivityMapper">
+  <resultMap id="BaseResultMap" type="com.sales.system.domain.entity.GiftActivity">
+    <!--@mbg.generated-->
+    <!--@Table t_gift_activity-->
+    <id column="gift_id" jdbcType="VARCHAR" property="giftId" />
+    <result column="parent_label" jdbcType="VARCHAR" property="parentLabel" />
+    <result column="gift_amount" jdbcType="DECIMAL" property="giftAmount" />
+    <result column="gift_name" jdbcType="VARCHAR" property="giftName" />
+    <result column="gift_quantity" jdbcType="INTEGER" property="giftQuantity" />
+    <result column="gift_img" jdbcType="VARCHAR" property="giftImg" />
+    <result column="gift_remark" jdbcType="VARCHAR" property="giftRemark" />
+    <result column="signs_flag" jdbcType="INTEGER" property="signsFlag" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="BIGINT" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    gift_id, parent_label, gift_amount, gift_name, gift_quantity, gift_img, gift_remark, 
+    signs_flag, create_by, create_time, update_by, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_gift_activity
+    where gift_id = #{giftId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from t_gift_activity
+    where gift_id = #{giftId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.sales.system.domain.entity.GiftActivity">
+    <!--@mbg.generated-->
+    insert into t_gift_activity (gift_id, parent_label, gift_amount, 
+      gift_name, gift_quantity, gift_img, 
+      gift_remark, signs_flag, create_by, 
+      create_time, update_by, update_time
+      )
+    values (#{giftId,jdbcType=VARCHAR}, #{parentLabel,jdbcType=VARCHAR}, #{giftAmount,jdbcType=DECIMAL}, 
+      #{giftName,jdbcType=VARCHAR}, #{giftQuantity,jdbcType=INTEGER}, #{giftImg,jdbcType=VARCHAR}, 
+      #{giftRemark,jdbcType=VARCHAR}, #{signsFlag,jdbcType=INTEGER}, #{createBy,jdbcType=BIGINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sales.system.domain.entity.GiftActivity">
+    <!--@mbg.generated-->
+    insert into t_gift_activity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="giftId != null">
+        gift_id,
+      </if>
+      <if test="parentLabel != null">
+        parent_label,
+      </if>
+      <if test="giftAmount != null">
+        gift_amount,
+      </if>
+      <if test="giftName != null">
+        gift_name,
+      </if>
+      <if test="giftQuantity != null">
+        gift_quantity,
+      </if>
+      <if test="giftImg != null">
+        gift_img,
+      </if>
+      <if test="giftRemark != null">
+        gift_remark,
+      </if>
+      <if test="signsFlag != null">
+        signs_flag,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="giftId != null">
+        #{giftId,jdbcType=VARCHAR},
+      </if>
+      <if test="parentLabel != null">
+        #{parentLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="giftAmount != null">
+        #{giftAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="giftName != null">
+        #{giftName,jdbcType=VARCHAR},
+      </if>
+      <if test="giftQuantity != null">
+        #{giftQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="giftImg != null">
+        #{giftImg,jdbcType=VARCHAR},
+      </if>
+      <if test="giftRemark != null">
+        #{giftRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="signsFlag != null">
+        #{signsFlag,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sales.system.domain.entity.GiftActivity">
+    <!--@mbg.generated-->
+    update t_gift_activity
+    <set>
+      <if test="parentLabel != null">
+        parent_label = #{parentLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="giftAmount != null">
+        gift_amount = #{giftAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="giftName != null">
+        gift_name = #{giftName,jdbcType=VARCHAR},
+      </if>
+      <if test="giftQuantity != null">
+        gift_quantity = #{giftQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="giftImg != null">
+        gift_img = #{giftImg,jdbcType=VARCHAR},
+      </if>
+      <if test="giftRemark != null">
+        gift_remark = #{giftRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="signsFlag != null">
+        signs_flag = #{signsFlag,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where gift_id = #{giftId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sales.system.domain.entity.GiftActivity">
+    <!--@mbg.generated-->
+    update t_gift_activity
+    set parent_label = #{parentLabel,jdbcType=VARCHAR},
+      gift_amount = #{giftAmount,jdbcType=DECIMAL},
+      gift_name = #{giftName,jdbcType=VARCHAR},
+      gift_quantity = #{giftQuantity,jdbcType=INTEGER},
+      gift_img = #{giftImg,jdbcType=VARCHAR},
+      gift_remark = #{giftRemark,jdbcType=VARCHAR},
+      signs_flag = #{signsFlag,jdbcType=INTEGER},
+      create_by = #{createBy,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where gift_id = #{giftId,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from
+    t_gift_activity
+  </select>
+</mapper>

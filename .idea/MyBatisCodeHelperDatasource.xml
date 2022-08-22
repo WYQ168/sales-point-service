@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MyBatisCodeHelperDatasource">
+    <option name="projectProfile">
+      <ProjectProfile>
+        <option name="javaMapperPackage" value="com.sales.system.mapper" />
+        <option name="javaMapperPath" value="E:\workspace_self\point-sales-service\sales-modules\sales-system-service\src\main\java" />
+        <option name="javaModelPackage" value="com.sales.system.domain.entity" />
+        <option name="javaModelPath" value="E:\workspace_self\point-sales-service\sales-modules\sales-system-service\src\main\java" />
+        <option name="lastDatabaseCrudChooseModuleName" value="sales-app-service" />
+        <option name="lombokDataAnnotation" value="true" />
+        <option name="moduleNameToPackageAndPathMap">
+          <map>
+            <entry key="sales-api-app">
+              <value>
+                <UserPackageAndPathInfoByModule>
+                  <option name="javaMapperPackage" value="com.sales.app.mapper" />
+                  <option name="javaMapperPath" value="$PROJECT_DIR$/sales-api/sales-api-app/src/main/java" />
+                  <option name="javaModelPacakge" value="com.sales.app.domain" />
+                  <option name="javaModelPath" value="E:\workspace_self\point-sales-service\sales-modules\sales-app-service\src\main\java" />
+                  <option name="javaServiceInterfacePath" value="$PROJECT_DIR$/sales-api/sales-api-app/src/main/java" />
+                  <option name="javaServicePath" value="$PROJECT_DIR$/sales-api/sales-api-app/src/main/java" />
+                  <option name="xmlPackage" value="mapper" />
+                  <option name="xmlPath" value="E:\workspace_self\point-sales-service\sales-modules\sales-app-service\src\main\resources" />
+                </UserPackageAndPathInfoByModule>
+              </value>
+            </entry>
+            <entry key="sales-app-service">
+              <value>
+                <UserPackageAndPathInfoByModule>
+                  <option name="javaMapperPackage" value="com.sales.system.mapper" />
+                  <option name="javaMapperPath" value="E:\workspace_self\point-sales-service\sales-modules\sales-system-service\src\main\java" />
+                  <option name="javaModelPacakge" value="com.sales.system.domain.entity" />
+                  <option name="javaModelPath" value="E:\workspace_self\point-sales-service\sales-modules\sales-system-service\src\main\java" />
+                  <option name="xmlPackage" value="mapper" />
+                  <option name="xmlPath" value="E:\workspace_self\point-sales-service\sales-modules\sales-system-service\src\main\resources" />
+                </UserPackageAndPathInfoByModule>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="removeTablePreName" value="t_" />
+        <option name="tableGenerateConfigs">
+          <map>
+            <entry key="sales-point:t_address">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="Address" />
+                  <option name="moduleName" value="sales-app-service" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="sales-point:t_agent_merchant">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="AgentMerchant" />
+                  <option name="moduleName" value="sales-app-service" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="sales-point:t_app_user">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="AppUser" />
+                  <option name="moduleName" value="sales-app-service" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="sales-point:t_base_user">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="BaseUser" />
+                  <option name="moduleName" value="sales-app-service" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="sales-point:t_currency_note">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="CurrencyNote" />
+                  <option name="moduleName" value="sales-app-service" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="sales-point:t_dict_data">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="DictData" />
+                  <option name="moduleName" value="sales-app-service" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="sales-point:t_dict_type">
+              <value>
+                <TableGenerateConfig>
+                  <option name="columnOverrideList">
+                    <list>
+                      <MyColumnOverride>
+                        <option name="columnName" value="dict_level" />
+                        <option name="javaType" value="java.lang.Integer" />
+                      </MyColumnOverride>
+                    </list>
+                  </option>
+                  <option name="javaModelName" value="DictType" />
+                  <option name="moduleName" value="sales-app-service" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="sales-point:t_feedback_report">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="feedback_id" />
+                  <option name="javaModelName" value="FeedbackReport" />
+                  <option name="moduleName" value="sales-app-service" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="sales-point:t_file_info">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="FileInfo" />
+                  <option name="moduleName" value="sales-app-service" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="sales-point:t_gift_activity">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="GiftActivity" />
+                  <option name="moduleName" value="sales-app-service" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="sales-point:t_income_record">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="IncomeRecord" />
+                  <option name="moduleName" value="sales-app-service" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="sales-point:t_machine">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="Machine" />
+                  <option name="moduleName" value="sales-app-service" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="sales-point:t_order">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="Order" />
+                  <option name="moduleName" value="sales-app-service" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="sales-point:t_sales_product">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="SalesProduct" />
+                  <option name="moduleName" value="sales-app-service" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="sales-point:t_sys_user">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="sys_user_id" />
+                  <option name="javaModelName" value="SysUser" />
+                  <option name="moduleName" value="sales-app-service" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="sales-point:t_user">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="User" />
+                  <option name="moduleName" value="sales-app-service" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="sales-point:t_wallet">
+              <value>
+                <TableGenerateConfig>
+                  <option name="javaModelName" value="Wallet" />
+                  <option name="moduleName" value="sales-app-service" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="useSwagger" value="true" />
+        <option name="xmlMapperPackage" value="mapper" />
+        <option name="xmlMapperPath" value="E:\workspace_self\point-sales-service\sales-modules\sales-system-service\src\main\resources" />
+      </ProjectProfile>
+    </option>
+  </component>
+</project>

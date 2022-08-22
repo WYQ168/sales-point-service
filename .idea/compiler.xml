@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="sales-api-app" />
+        <module name="sales-api-system" />
+        <module name="sales-common-datascope" />
+        <module name="sales-common-redis" />
+        <module name="sales-app-service" />
+        <module name="sales-im-service" />
+        <module name="sales-system-service" />
+        <module name="sales-api-im" />
+        <module name="sales-api-file" />
+        <module name="sales-auth" />
+        <module name="sales-gateway" />
+        <module name="sales-common-security" />
+        <module name="sales-common-swagger" />
+        <module name="sales-common-log" />
+        <module name="sales-file-service" />
+        <module name="sales-common-core" />
+        <module name="sales-common-datasource" />
+        <module name="sales-rabbitmq-spring-boot-starter" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="sales-comomn-core" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sales.app.mapper.SysUserMapper">
+  <resultMap id="BaseResultMap" type="com.sales.app.domain.entity.SysUser">
+    <!--@mbg.generated-->
+    <!--@Table t_sys_user-->
+    <id column="sys_user_id" jdbcType="BIGINT" property="sysUserId" />
+    <result column="sys_permission" jdbcType="INTEGER" property="sysPermission" />
+    <result column="partner_level" jdbcType="INTEGER" property="partnerLevel" />
+    <result column="sys_username" jdbcType="VARCHAR" property="sysUsername" />
+    <result column="sys_password" jdbcType="VARCHAR" property="sysPassword" />
+    <result column="sys_phone" jdbcType="VARCHAR" property="sysPhone" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="identity_number" jdbcType="VARCHAR" property="identityNumber" />
+    <result column="verified_status" jdbcType="INTEGER" property="verifiedStatus" />
+    <result column="face_authentication" jdbcType="INTEGER" property="faceAuthentication" />
+    <result column="del_flag" jdbcType="INTEGER" property="delFlag" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="BIGINT" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    sys_user_id, sys_permission, partner_level, sys_username, sys_password, sys_phone, 
+    real_name, identity_number, verified_status, face_authentication, del_flag, create_by, 
+    create_time, update_by, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_sys_user
+    where sys_user_id = #{sysUserId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from t_sys_user
+    where sys_user_id = #{sysUserId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="sys_user_id" keyProperty="sysUserId" parameterType="com.sales.app.domain.entity.SysUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_sys_user (sys_permission, partner_level, sys_username, 
+      sys_password, sys_phone, real_name, 
+      identity_number, verified_status, face_authentication, 
+      del_flag, create_by, create_time, 
+      update_by, update_time)
+    values (#{sysPermission,jdbcType=INTEGER}, #{partnerLevel,jdbcType=INTEGER}, #{sysUsername,jdbcType=VARCHAR}, 
+      #{sysPassword,jdbcType=VARCHAR}, #{sysPhone,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, 
+      #{identityNumber,jdbcType=VARCHAR}, #{verifiedStatus,jdbcType=INTEGER}, #{faceAuthentication,jdbcType=INTEGER}, 
+      #{delFlag,jdbcType=INTEGER}, #{createBy,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateBy,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="sys_user_id" keyProperty="sysUserId" parameterType="com.sales.app.domain.entity.SysUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_sys_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sysPermission != null">
+        sys_permission,
+      </if>
+      <if test="partnerLevel != null">
+        partner_level,
+      </if>
+      <if test="sysUsername != null">
+        sys_username,
+      </if>
+      <if test="sysPassword != null">
+        sys_password,
+      </if>
+      <if test="sysPhone != null">
+        sys_phone,
+      </if>
+      <if test="realName != null">
+        real_name,
+      </if>
+      <if test="identityNumber != null">
+        identity_number,
+      </if>
+      <if test="verifiedStatus != null">
+        verified_status,
+      </if>
+      <if test="faceAuthentication != null">
+        face_authentication,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sysPermission != null">
+        #{sysPermission,jdbcType=INTEGER},
+      </if>
+      <if test="partnerLevel != null">
+        #{partnerLevel,jdbcType=INTEGER},
+      </if>
+      <if test="sysUsername != null">
+        #{sysUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="sysPassword != null">
+        #{sysPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="sysPhone != null">
+        #{sysPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="identityNumber != null">
+        #{identityNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="verifiedStatus != null">
+        #{verifiedStatus,jdbcType=INTEGER},
+      </if>
+      <if test="faceAuthentication != null">
+        #{faceAuthentication,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sales.app.domain.entity.SysUser">
+    <!--@mbg.generated-->
+    update t_sys_user
+    <set>
+      <if test="sysPermission != null">
+        sys_permission = #{sysPermission,jdbcType=INTEGER},
+      </if>
+      <if test="partnerLevel != null">
+        partner_level = #{partnerLevel,jdbcType=INTEGER},
+      </if>
+      <if test="sysUsername != null">
+        sys_username = #{sysUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="sysPassword != null">
+        sys_password = #{sysPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="sysPhone != null">
+        sys_phone = #{sysPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="identityNumber != null">
+        identity_number = #{identityNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="verifiedStatus != null">
+        verified_status = #{verifiedStatus,jdbcType=INTEGER},
+      </if>
+      <if test="faceAuthentication != null">
+        face_authentication = #{faceAuthentication,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where sys_user_id = #{sysUserId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sales.app.domain.entity.SysUser">
+    <!--@mbg.generated-->
+    update t_sys_user
+    set sys_permission = #{sysPermission,jdbcType=INTEGER},
+      partner_level = #{partnerLevel,jdbcType=INTEGER},
+      sys_username = #{sysUsername,jdbcType=VARCHAR},
+      sys_password = #{sysPassword,jdbcType=VARCHAR},
+      sys_phone = #{sysPhone,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      identity_number = #{identityNumber,jdbcType=VARCHAR},
+      verified_status = #{verifiedStatus,jdbcType=INTEGER},
+      face_authentication = #{faceAuthentication,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=INTEGER},
+      create_by = #{createBy,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where sys_user_id = #{sysUserId,jdbcType=BIGINT}
+  </update>
+</mapper>

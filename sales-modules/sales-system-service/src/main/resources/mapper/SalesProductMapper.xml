@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sales.system.mapper.SalesProductMapper">
+  <resultMap id="BaseResultMap" type="com.sales.system.domain.entity.SalesProduct">
+    <!--@mbg.generated-->
+    <!--@Table t_sales_product-->
+    <id column="product_id" jdbcType="BIGINT" property="productId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="brand_name" jdbcType="VARCHAR" property="brandName" />
+    <result column="product_type" jdbcType="INTEGER" property="productType" />
+    <result column="inventory" jdbcType="INTEGER" property="inventory" />
+    <result column="product_label" jdbcType="VARCHAR" property="productLabel" />
+    <result column="product_sn" jdbcType="VARCHAR" property="productSn" />
+    <result column="product_model" jdbcType="VARCHAR" property="productModel" />
+    <result column="product_cash_price" jdbcType="DECIMAL" property="productCashPrice" />
+    <result column="integral_flag" jdbcType="INTEGER" property="integralFlag" />
+    <result column="product_integral_price" jdbcType="DECIMAL" property="productIntegralPrice" />
+    <result column="product_details" jdbcType="VARCHAR" property="productDetails" />
+    <result column="product_remark" jdbcType="VARCHAR" property="productRemark" />
+    <result column="product_status" jdbcType="INTEGER" property="productStatus" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="del_flag" jdbcType="INTEGER" property="delFlag" />
+    <result column="update_by" jdbcType="BIGINT" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    product_id, product_name, brand_name, product_type, inventory, product_label, product_sn, 
+    product_model, product_cash_price, integral_flag, product_integral_price, product_details, 
+    product_remark, product_status, create_by, create_time, del_flag, update_by, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_sales_product
+    where product_id = #{productId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from t_sales_product
+    where product_id = #{productId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.sales.system.domain.entity.SalesProduct">
+    <!--@mbg.generated-->
+    insert into t_sales_product (product_id, product_name, brand_name, 
+      product_type, inventory, product_label, 
+      product_sn, product_model, product_cash_price, 
+      integral_flag, product_integral_price, product_details, 
+      product_remark, product_status, create_by, 
+      create_time, del_flag, update_by, 
+      update_time)
+    values (#{productId,jdbcType=BIGINT}, #{productName,jdbcType=VARCHAR}, #{brandName,jdbcType=VARCHAR}, 
+      #{productType,jdbcType=INTEGER}, #{inventory,jdbcType=INTEGER}, #{productLabel,jdbcType=VARCHAR}, 
+      #{productSn,jdbcType=VARCHAR}, #{productModel,jdbcType=VARCHAR}, #{productCashPrice,jdbcType=DECIMAL}, 
+      #{integralFlag,jdbcType=INTEGER}, #{productIntegralPrice,jdbcType=DECIMAL}, #{productDetails,jdbcType=VARCHAR}, 
+      #{productRemark,jdbcType=VARCHAR}, #{productStatus,jdbcType=INTEGER}, #{createBy,jdbcType=BIGINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=INTEGER}, #{updateBy,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sales.system.domain.entity.SalesProduct">
+    <!--@mbg.generated-->
+    insert into t_sales_product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="brandName != null">
+        brand_name,
+      </if>
+      <if test="productType != null">
+        product_type,
+      </if>
+      <if test="inventory != null">
+        inventory,
+      </if>
+      <if test="productLabel != null">
+        product_label,
+      </if>
+      <if test="productSn != null">
+        product_sn,
+      </if>
+      <if test="productModel != null">
+        product_model,
+      </if>
+      <if test="productCashPrice != null">
+        product_cash_price,
+      </if>
+      <if test="integralFlag != null">
+        integral_flag,
+      </if>
+      <if test="productIntegralPrice != null">
+        product_integral_price,
+      </if>
+      <if test="productDetails != null">
+        product_details,
+      </if>
+      <if test="productRemark != null">
+        product_remark,
+      </if>
+      <if test="productStatus != null">
+        product_status,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        #{productId,jdbcType=BIGINT},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="brandName != null">
+        #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="productType != null">
+        #{productType,jdbcType=INTEGER},
+      </if>
+      <if test="inventory != null">
+        #{inventory,jdbcType=INTEGER},
+      </if>
+      <if test="productLabel != null">
+        #{productLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="productSn != null">
+        #{productSn,jdbcType=VARCHAR},
+      </if>
+      <if test="productModel != null">
+        #{productModel,jdbcType=VARCHAR},
+      </if>
+      <if test="productCashPrice != null">
+        #{productCashPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="integralFlag != null">
+        #{integralFlag,jdbcType=INTEGER},
+      </if>
+      <if test="productIntegralPrice != null">
+        #{productIntegralPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="productDetails != null">
+        #{productDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="productRemark != null">
+        #{productRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="productStatus != null">
+        #{productStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=INTEGER},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sales.system.domain.entity.SalesProduct">
+    <!--@mbg.generated-->
+    update t_sales_product
+    <set>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="brandName != null">
+        brand_name = #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="productType != null">
+        product_type = #{productType,jdbcType=INTEGER},
+      </if>
+      <if test="inventory != null">
+        inventory = #{inventory,jdbcType=INTEGER},
+      </if>
+      <if test="productLabel != null">
+        product_label = #{productLabel,jdbcType=VARCHAR},
+      </if>
+      <if test="productSn != null">
+        product_sn = #{productSn,jdbcType=VARCHAR},
+      </if>
+      <if test="productModel != null">
+        product_model = #{productModel,jdbcType=VARCHAR},
+      </if>
+      <if test="productCashPrice != null">
+        product_cash_price = #{productCashPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="integralFlag != null">
+        integral_flag = #{integralFlag,jdbcType=INTEGER},
+      </if>
+      <if test="productIntegralPrice != null">
+        product_integral_price = #{productIntegralPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="productDetails != null">
+        product_details = #{productDetails,jdbcType=VARCHAR},
+      </if>
+      <if test="productRemark != null">
+        product_remark = #{productRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="productStatus != null">
+        product_status = #{productStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=INTEGER},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where product_id = #{productId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sales.system.domain.entity.SalesProduct">
+    <!--@mbg.generated-->
+    update t_sales_product
+    set product_name = #{productName,jdbcType=VARCHAR},
+      brand_name = #{brandName,jdbcType=VARCHAR},
+      product_type = #{productType,jdbcType=INTEGER},
+      inventory = #{inventory,jdbcType=INTEGER},
+      product_label = #{productLabel,jdbcType=VARCHAR},
+      product_sn = #{productSn,jdbcType=VARCHAR},
+      product_model = #{productModel,jdbcType=VARCHAR},
+      product_cash_price = #{productCashPrice,jdbcType=DECIMAL},
+      integral_flag = #{integralFlag,jdbcType=INTEGER},
+      product_integral_price = #{productIntegralPrice,jdbcType=DECIMAL},
+      product_details = #{productDetails,jdbcType=VARCHAR},
+      product_remark = #{productRemark,jdbcType=VARCHAR},
+      product_status = #{productStatus,jdbcType=INTEGER},
+      create_by = #{createBy,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=INTEGER},
+      update_by = #{updateBy,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where product_id = #{productId,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectAllByCondition" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from t_sales_product
+    where del_flag = 0
+  </select>
+</mapper>

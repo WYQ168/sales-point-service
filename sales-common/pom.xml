@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>point-sales-service</artifactId>
+        <groupId>com.sales</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <packaging>pom</packaging>
+    <modelVersion>4.0.0</modelVersion>
+
+    <modules>
+        <module>sales-common-core</module>
+        <module>sales-common-datasource</module>
+        <module>sales-common-redis</module>
+        <module>sales-common-security</module>
+        <module>sales-common-log</module>
+        <module>sales-rabbitmq-spring-boot-starter</module>
+        <module>sales-common-swagger</module>
+        <module>sales-common-datascope</module>
+    </modules>
+
+    <artifactId>sales-common</artifactId>
+
+    <description>
+        sales-common公共模块
+    </description>
+
+</project>

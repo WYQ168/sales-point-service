@@ -1,0 +1,7 @@
+com\sales\file\properties\FileServerProperties.class
+com\sales\file\api\FileAuthService.class
+com\sales\file\properties\OssProperties.class
+com\sales\file\model\UploadManager$1.class
+com\sales\file\config\QiniuOSSAutoConfigure.class
+com\sales\file\model\UploadManager.class
+com\sales\file\properties\FdfsProperties.class

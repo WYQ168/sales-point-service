@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sales.system.mapper.FeedbackReportMapper">
+  <resultMap id="BaseResultMap" type="com.sales.system.domain.entity.FeedbackReport">
+    <!--@mbg.generated-->
+    <!--@Table t_feedback_report-->
+    <id column="feedback_id" jdbcType="BIGINT" property="feedbackId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="picture" jdbcType="VARCHAR" property="picture" />
+    <result column="process_type" jdbcType="INTEGER" property="processType" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="report_source" jdbcType="VARCHAR" property="reportSource" />
+    <result column="handle_result" jdbcType="VARCHAR" property="handleResult" />
+    <result column="handle_time" jdbcType="TIMESTAMP" property="handleTime" />
+    <result column="handle_by" jdbcType="BIGINT" property="handleBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="update_by" jdbcType="BIGINT" property="updateBy" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    feedback_id, user_id, `type`, content, picture, process_type, `status`, report_source, 
+    handle_result, handle_time, handle_by, create_time, update_time, create_by, update_by
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_feedback_report
+    where feedback_id = #{feedbackId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from t_feedback_report
+    where feedback_id = #{feedbackId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="feedback_id" keyProperty="feedbackId" parameterType="com.sales.system.domain.entity.FeedbackReport" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_feedback_report (user_id, `type`, content, 
+      picture, process_type, `status`, 
+      report_source, handle_result, handle_time, 
+      handle_by, create_time, update_time, 
+      create_by, update_by)
+    values (#{userId,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, 
+      #{picture,jdbcType=VARCHAR}, #{processType,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{reportSource,jdbcType=VARCHAR}, #{handleResult,jdbcType=VARCHAR}, #{handleTime,jdbcType=TIMESTAMP}, 
+      #{handleBy,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{createBy,jdbcType=BIGINT}, #{updateBy,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="feedback_id" keyProperty="feedbackId" parameterType="com.sales.system.domain.entity.FeedbackReport" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_feedback_report
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="picture != null">
+        picture,
+      </if>
+      <if test="processType != null">
+        process_type,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="reportSource != null">
+        report_source,
+      </if>
+      <if test="handleResult != null">
+        handle_result,
+      </if>
+      <if test="handleTime != null">
+        handle_time,
+      </if>
+      <if test="handleBy != null">
+        handle_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="picture != null">
+        #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="processType != null">
+        #{processType,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reportSource != null">
+        #{reportSource,jdbcType=VARCHAR},
+      </if>
+      <if test="handleResult != null">
+        #{handleResult,jdbcType=VARCHAR},
+      </if>
+      <if test="handleTime != null">
+        #{handleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="handleBy != null">
+        #{handleBy,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sales.system.domain.entity.FeedbackReport">
+    <!--@mbg.generated-->
+    update t_feedback_report
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="picture != null">
+        picture = #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="processType != null">
+        process_type = #{processType,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reportSource != null">
+        report_source = #{reportSource,jdbcType=VARCHAR},
+      </if>
+      <if test="handleResult != null">
+        handle_result = #{handleResult,jdbcType=VARCHAR},
+      </if>
+      <if test="handleTime != null">
+        handle_time = #{handleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="handleBy != null">
+        handle_by = #{handleBy,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=BIGINT},
+      </if>
+    </set>
+    where feedback_id = #{feedbackId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sales.system.domain.entity.FeedbackReport">
+    <!--@mbg.generated-->
+    update t_feedback_report
+    set user_id = #{userId,jdbcType=BIGINT},
+      `type` = #{type,jdbcType=INTEGER},
+      content = #{content,jdbcType=VARCHAR},
+      picture = #{picture,jdbcType=VARCHAR},
+      process_type = #{processType,jdbcType=INTEGER},
+      `status` = #{status,jdbcType=INTEGER},
+      report_source = #{reportSource,jdbcType=VARCHAR},
+      handle_result = #{handleResult,jdbcType=VARCHAR},
+      handle_time = #{handleTime,jdbcType=TIMESTAMP},
+      handle_by = #{handleBy,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=BIGINT},
+      update_by = #{updateBy,jdbcType=BIGINT}
+    where feedback_id = #{feedbackId,jdbcType=BIGINT}
+  </update>
+</mapper>

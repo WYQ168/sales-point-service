@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sales.system.mapper.AppUserMapper">
+  <resultMap id="BaseResultMap" type="com.sales.system.domain.entity.AppUser">
+    <!--@mbg.generated-->
+    <!--@Table t_app_user-->
+    <id column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_sex" jdbcType="INTEGER" property="userSex" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="phone_member" jdbcType="VARCHAR" property="phoneMember" />
+    <result column="bank_card" jdbcType="VARCHAR" property="bankCard" />
+    <result column="open_bank" jdbcType="VARCHAR" property="openBank" />
+    <result column="identity_member" jdbcType="VARCHAR" property="identityMember" />
+    <result column="invite_code" jdbcType="VARCHAR" property="inviteCode" />
+    <result column="verified_status" jdbcType="INTEGER" property="verifiedStatus" />
+    <result column="membership_level" jdbcType="VARCHAR" property="membershipLevel" />
+    <result column="steward_level" jdbcType="VARCHAR" property="stewardLevel" />
+    <result column="recommend_code" jdbcType="VARCHAR" property="recommendCode" />
+    <result column="register_time" jdbcType="TIMESTAMP" property="registerTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="user_status" jdbcType="VARCHAR" property="userStatus" />
+    <result column="rank" jdbcType="VARCHAR" property="rank" />
+    <result column="del_flag" jdbcType="INTEGER" property="delFlag" />
+    <result column="last_login_ip" jdbcType="VARCHAR" property="lastLoginIp" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="system_type" jdbcType="VARCHAR" property="systemType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    user_id, login_name, user_name, user_sex, avatar, `password`, phone_member, bank_card, 
+    open_bank, identity_member, invite_code, verified_status, membership_level, steward_level, 
+    recommend_code, register_time, update_time, user_status, `rank`, del_flag, last_login_ip, 
+    last_login_time, system_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_app_user
+    where user_id = #{userId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from t_app_user
+    where user_id = #{userId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.sales.system.domain.entity.AppUser">
+    <!--@mbg.generated-->
+    insert into t_app_user (user_id, login_name, user_name, 
+      user_sex, avatar, `password`, 
+      phone_member, bank_card, open_bank, 
+      identity_member, invite_code, verified_status, 
+      membership_level, steward_level, recommend_code, 
+      register_time, update_time, user_status, 
+      `rank`, del_flag, last_login_ip, 
+      last_login_time, system_type)
+    values (#{userId,jdbcType=BIGINT}, #{loginName,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{userSex,jdbcType=INTEGER}, #{avatar,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{phoneMember,jdbcType=VARCHAR}, #{bankCard,jdbcType=VARCHAR}, #{openBank,jdbcType=VARCHAR}, 
+      #{identityMember,jdbcType=VARCHAR}, #{inviteCode,jdbcType=VARCHAR}, #{verifiedStatus,jdbcType=INTEGER}, 
+      #{membershipLevel,jdbcType=VARCHAR}, #{stewardLevel,jdbcType=VARCHAR}, #{recommendCode,jdbcType=VARCHAR}, 
+      #{registerTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{userStatus,jdbcType=VARCHAR}, 
+      #{rank,jdbcType=VARCHAR}, #{delFlag,jdbcType=INTEGER}, #{lastLoginIp,jdbcType=VARCHAR}, 
+      #{lastLoginTime,jdbcType=TIMESTAMP}, #{systemType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sales.system.domain.entity.AppUser">
+    <!--@mbg.generated-->
+    insert into t_app_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="loginName != null">
+        login_name,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userSex != null">
+        user_sex,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="phoneMember != null">
+        phone_member,
+      </if>
+      <if test="bankCard != null">
+        bank_card,
+      </if>
+      <if test="openBank != null">
+        open_bank,
+      </if>
+      <if test="identityMember != null">
+        identity_member,
+      </if>
+      <if test="inviteCode != null">
+        invite_code,
+      </if>
+      <if test="verifiedStatus != null">
+        verified_status,
+      </if>
+      <if test="membershipLevel != null">
+        membership_level,
+      </if>
+      <if test="stewardLevel != null">
+        steward_level,
+      </if>
+      <if test="recommendCode != null">
+        recommend_code,
+      </if>
+      <if test="registerTime != null">
+        register_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="userStatus != null">
+        user_status,
+      </if>
+      <if test="rank != null">
+        `rank`,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="lastLoginIp != null">
+        last_login_ip,
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time,
+      </if>
+      <if test="systemType != null">
+        system_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="loginName != null">
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        #{userSex,jdbcType=INTEGER},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneMember != null">
+        #{phoneMember,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCard != null">
+        #{bankCard,jdbcType=VARCHAR},
+      </if>
+      <if test="openBank != null">
+        #{openBank,jdbcType=VARCHAR},
+      </if>
+      <if test="identityMember != null">
+        #{identityMember,jdbcType=VARCHAR},
+      </if>
+      <if test="inviteCode != null">
+        #{inviteCode,jdbcType=VARCHAR},
+      </if>
+      <if test="verifiedStatus != null">
+        #{verifiedStatus,jdbcType=INTEGER},
+      </if>
+      <if test="membershipLevel != null">
+        #{membershipLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="stewardLevel != null">
+        #{stewardLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendCode != null">
+        #{recommendCode,jdbcType=VARCHAR},
+      </if>
+      <if test="registerTime != null">
+        #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userStatus != null">
+        #{userStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="rank != null">
+        #{rank,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginIp != null">
+        #{lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginTime != null">
+        #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="systemType != null">
+        #{systemType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sales.system.domain.entity.AppUser">
+    <!--@mbg.generated-->
+    update t_app_user
+    <set>
+      <if test="loginName != null">
+        login_name = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        user_sex = #{userSex,jdbcType=INTEGER},
+      </if>
+      <if test="avatar != null">
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneMember != null">
+        phone_member = #{phoneMember,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCard != null">
+        bank_card = #{bankCard,jdbcType=VARCHAR},
+      </if>
+      <if test="openBank != null">
+        open_bank = #{openBank,jdbcType=VARCHAR},
+      </if>
+      <if test="identityMember != null">
+        identity_member = #{identityMember,jdbcType=VARCHAR},
+      </if>
+      <if test="inviteCode != null">
+        invite_code = #{inviteCode,jdbcType=VARCHAR},
+      </if>
+      <if test="verifiedStatus != null">
+        verified_status = #{verifiedStatus,jdbcType=INTEGER},
+      </if>
+      <if test="membershipLevel != null">
+        membership_level = #{membershipLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="stewardLevel != null">
+        steward_level = #{stewardLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendCode != null">
+        recommend_code = #{recommendCode,jdbcType=VARCHAR},
+      </if>
+      <if test="registerTime != null">
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userStatus != null">
+        user_status = #{userStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="rank != null">
+        `rank` = #{rank,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginIp != null">
+        last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="systemType != null">
+        system_type = #{systemType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sales.system.domain.entity.AppUser">
+    <!--@mbg.generated-->
+    update t_app_user
+    set login_name = #{loginName,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_sex = #{userSex,jdbcType=INTEGER},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      phone_member = #{phoneMember,jdbcType=VARCHAR},
+      bank_card = #{bankCard,jdbcType=VARCHAR},
+      open_bank = #{openBank,jdbcType=VARCHAR},
+      identity_member = #{identityMember,jdbcType=VARCHAR},
+      invite_code = #{inviteCode,jdbcType=VARCHAR},
+      verified_status = #{verifiedStatus,jdbcType=INTEGER},
+      membership_level = #{membershipLevel,jdbcType=VARCHAR},
+      steward_level = #{stewardLevel,jdbcType=VARCHAR},
+      recommend_code = #{recommendCode,jdbcType=VARCHAR},
+      register_time = #{registerTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      user_status = #{userStatus,jdbcType=VARCHAR},
+      `rank` = #{rank,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=INTEGER},
+      last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      system_type = #{systemType,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=BIGINT}
+  </update>
+</mapper>

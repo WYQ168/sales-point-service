@@ -1,0 +1,46 @@
+# Tomcat
+server:
+  port: 8080
+
+# Spring
+spring:
+  application:
+    # 应用名称
+    name: sales-gateway
+  profiles:
+    # 环境配置
+    active: dev
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        # 服务注册地址
+        server-addr: 121.40.157.24:8848
+        namespace: ${spring.profiles.active}
+        enabled: true
+        register-enabled: true
+      config:
+        # 配置中心地址
+        server-addr: 121.40.157.24:8848
+        namespace: ${spring.profiles.active}
+        # 配置文件格式
+        file-extension: yml
+        # 共享配置
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+    sentinel:
+      # 取消控制台懒加载
+      eager: true
+      transport:
+        # 控制台地址
+        dashboard: 121.40.157.24:8718
+      # nacos配置持久化
+      datasource:
+        ds1:
+          nacos:
+            server-addr: 121.40.157.24:8848
+            dataId: sentinel-sales-gateway
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow

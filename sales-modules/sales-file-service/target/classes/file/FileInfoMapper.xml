@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sales.file.mapper.FileInfoMapper">
+    <resultMap id="BaseResultMap" type="com.sales.file.domain.FileInfo">
+        <!--@mbg.generated-->
+        <!--@Table file_info-->
+        <id column="file_id" jdbcType="VARCHAR" property="fileId" />
+        <result column="file_name" jdbcType="VARCHAR" property="fileName" />
+        <result column="type" jdbcType="TINYINT" property="type" />
+        <result column="file_url" jdbcType="VARCHAR" property="fileUrl" />
+        <result column="upload_port" jdbcType="INTEGER" property="uploadPort" />
+        <result column="del_flag" jdbcType="BOOLEAN" property="delFlag" />
+        <result column="create_by" jdbcType="BIGINT" property="createBy" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="update_by" jdbcType="BIGINT" property="updateBy" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        file_id, file_name, `type`, file_url, upload_port, del_flag, create_by, create_time,
+        update_by, update_time
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List" />
+        from file_info
+        where file_id = #{fileId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete from file_info
+        where file_id = #{fileId,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.sales.file.domain.FileInfo">
+        <!--@mbg.generated-->
+        insert into file_info (file_id, file_name, `type`,
+        file_url, upload_port, del_flag,
+        create_by, create_time, update_by,
+        update_time)
+        values (#{fileId,jdbcType=VARCHAR}, #{fileName,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT},
+        #{fileUrl,jdbcType=VARCHAR}, #{uploadPort,jdbcType=INTEGER}, #{delFlag,jdbcType=BOOLEAN},
+        #{createBy,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=BIGINT},
+        #{updateTime,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" parameterType="com.sales.file.domain.FileInfo">
+        <!--@mbg.generated-->
+        insert into file_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="fileId != null">
+                file_id,
+            </if>
+            <if test="fileName != null">
+                file_name,
+            </if>
+            <if test="type != null">
+                `type`,
+            </if>
+            <if test="fileUrl != null">
+                file_url,
+            </if>
+            <if test="uploadPort != null">
+                upload_port,
+            </if>
+            <if test="delFlag != null">
+                del_flag,
+            </if>
+            <if test="createBy != null">
+                create_by,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="fileId != null">
+                #{fileId,jdbcType=VARCHAR},
+            </if>
+            <if test="fileName != null">
+                #{fileName,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=TINYINT},
+            </if>
+            <if test="fileUrl != null">
+                #{fileUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="uploadPort != null">
+                #{uploadPort,jdbcType=INTEGER},
+            </if>
+            <if test="delFlag != null">
+                #{delFlag,jdbcType=BOOLEAN},
+            </if>
+            <if test="createBy != null">
+                #{createBy,jdbcType=BIGINT},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy,jdbcType=BIGINT},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.sales.file.domain.FileInfo">
+        <!--@mbg.generated-->
+        update file_info
+        <set>
+            <if test="fileName != null">
+                file_name = #{fileName,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                `type` = #{type,jdbcType=TINYINT},
+            </if>
+            <if test="fileUrl != null">
+                file_url = #{fileUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="uploadPort != null">
+                upload_port = #{uploadPort,jdbcType=INTEGER},
+            </if>
+            <if test="delFlag != null">
+                del_flag = #{delFlag,jdbcType=BOOLEAN},
+            </if>
+            <if test="createBy != null">
+                create_by = #{createBy,jdbcType=BIGINT},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy,jdbcType=BIGINT},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where file_id = #{fileId,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.sales.file.domain.FileInfo">
+        <!--@mbg.generated-->
+        update file_info
+        set file_name = #{fileName,jdbcType=VARCHAR},
+        `type` = #{type,jdbcType=TINYINT},
+        file_url = #{fileUrl,jdbcType=VARCHAR},
+        upload_port = #{uploadPort,jdbcType=INTEGER},
+        del_flag = #{delFlag,jdbcType=BOOLEAN},
+        create_by = #{createBy,jdbcType=BIGINT},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+        update_by = #{updateBy,jdbcType=BIGINT},
+        update_time = #{updateTime,jdbcType=TIMESTAMP}
+        where file_id = #{fileId,jdbcType=VARCHAR}
+    </update>
+
+    <delete id="deleteFileInfoById" parameterType="String">
+        delete from file_info where file_id = #{id}
+    </delete>
+
+    <delete id="deleteFileInfoByIds" parameterType="String">
+        delete from file_info where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

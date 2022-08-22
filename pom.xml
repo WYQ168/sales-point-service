@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.sales</groupId>
+  <artifactId>point-sales-service</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0.0-SNAPSHOT</version>
+
+  <modules>
+    <module>sales-common</module>
+    <module>sales-api</module>
+    <module>sales-auth</module>
+    <module>sales-gateway</module>
+    <module>sales-modules</module>
+  </modules>
+
+  <name>point-sales-service</name>
+
+    <properties>
+      <java.version>1.8</java.version>
+      <sales.version>1.0.0-SNAPSHOT</sales.version>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+      <java.version>1.8</java.version>
+      <spring-boot.version>2.5.6</spring-boot.version>
+      <spring-cloud.version>2020.0.4</spring-cloud.version>
+      <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
+      <druid.version>1.2.8</druid.version>
+      <dynamic-ds.version>3.4.1</dynamic-ds.version>
+      <alibaba.nacos.version>2.0.3</alibaba.nacos.version>
+      <spring-boot-admin.version>2.5.0</spring-boot-admin.version>
+      <lombok.version>1.18.22</lombok.version>
+      <spring-cloud-starter-openfeign.version>3.0.4</spring-cloud-starter-openfeign.version>
+      <spring-cloud-starter-loadbalancer.version>3.0.4</spring-cloud-starter-loadbalancer.version>
+      <swagger.models.version>1.5.21</swagger.models.version>
+      <swagger.fox.version>3.0.0</swagger.fox.version>
+      <knife4j.version>2.0.8</knife4j.version>
+      <kaptcha.version>2.3.2</kaptcha.version>
+      <spring-boot-admin.version>2.5.0</spring-boot-admin.version>
+      <spring-boot.mybatis>2.2.0</spring-boot.mybatis>
+    </properties>
+
+  <!-- 依赖声明 -->
+  <dependencyManagement>
+    <dependencies>
+      <!-- SpringCloud 微服务 -->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!-- SpringCloud Alibaba 微服务 -->
+      <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+        <version>${spring-cloud-alibaba.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!-- Alibaba Nacos 配置 -->
+      <dependency>
+        <groupId>com.alibaba.nacos</groupId>
+        <artifactId>nacos-client</artifactId>
+        <version>${alibaba.nacos.version}</version>
+      </dependency>
+
+      <!-- SpringBoot 依赖配置 -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!--  SpringBoot 监控客户端 -->
+      <dependency>
+        <groupId>de.codecentric</groupId>
+        <artifactId>spring-boot-admin-starter-client</artifactId>
+        <version>${spring-boot-admin.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter</artifactId>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-devtools</artifactId>
+        <scope>runtime</scope>
+        <optional>true</optional>
+      </dependency>
+
+      <dependency>
+        <groupId>com.sales</groupId>
+        <artifactId>sales-common-core</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+      </dependency>
+
+      <!-- 核心模块 -->
+      <dependency>
+        <groupId>com.sales</groupId>
+        <artifactId>sales-common-core</artifactId>
+        <version>${sales.version}</version>
+      </dependency>
+
+      <!-- 接口模块 -->
+      <dependency>
+        <groupId>com.sales</groupId>
+        <artifactId>sales-common-swagger</artifactId>
+        <version>${sales.version}</version>
+      </dependency>
+
+      <!-- 安全模块 -->
+      <dependency>
+        <groupId>com.sales</groupId>
+        <artifactId>sales-common-security</artifactId>
+        <version>${sales.version}</version>
+      </dependency>
+
+      <!-- 权限范围 -->
+      <dependency>
+        <groupId>com.sales</groupId>
+        <artifactId>sales-common-datascope</artifactId>
+        <version>${sales.version}</version>
+      </dependency>
+
+      <!-- 多数据源 -->
+      <dependency>
+        <groupId>com.sales</groupId>
+        <artifactId>sales-common-datasource</artifactId>
+        <version>${sales.version}</version>
+      </dependency>
+
+      <!-- 日志记录 -->
+      <dependency>
+        <groupId>com.sales</groupId>
+        <artifactId>sales-common-log</artifactId>
+        <version>${sales.version}</version>
+      </dependency>
+
+      <!-- 缓存服务 -->
+      <dependency>
+        <groupId>com.sales</groupId>
+        <artifactId>sales-common-redis</artifactId>
+        <version>${sales.version}</version>
+      </dependency>
+      <!-- Mybatis 依赖配置 -->
+      <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>${spring-boot.mybatis}</version>
+      </dependency>
+
+
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <!-- bootstrap启动器 -->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-bootstrap</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.6.0</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

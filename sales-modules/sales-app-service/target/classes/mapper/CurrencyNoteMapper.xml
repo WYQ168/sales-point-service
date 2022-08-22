@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sales.app.mapper.CurrencyNoteMapper">
+  <resultMap id="BaseResultMap" type="com.sales.app.domain.entity.CurrencyNote">
+    <!--@mbg.generated-->
+    <!--@Table t_currency_note-->
+    <id column="currency_id" jdbcType="BIGINT" property="currencyId" />
+    <result column="currency_note_number" jdbcType="INTEGER" property="currencyNoteNumber" />
+    <result column="balance_amount" jdbcType="DECIMAL" property="balanceAmount" />
+    <result column="buy_id" jdbcType="BIGINT" property="buyId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    currency_id, currency_note_number, balance_amount, buy_id, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_currency_note
+    where currency_id = #{currencyId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from t_currency_note
+    where currency_id = #{currencyId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.sales.app.domain.entity.CurrencyNote">
+    <!--@mbg.generated-->
+    insert into t_currency_note (currency_id, currency_note_number, balance_amount, 
+      buy_id, create_time, update_time
+      )
+    values (#{currencyId,jdbcType=BIGINT}, #{currencyNoteNumber,jdbcType=INTEGER}, #{balanceAmount,jdbcType=DECIMAL}, 
+      #{buyId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sales.app.domain.entity.CurrencyNote">
+    <!--@mbg.generated-->
+    insert into t_currency_note
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="currencyId != null">
+        currency_id,
+      </if>
+      <if test="currencyNoteNumber != null">
+        currency_note_number,
+      </if>
+      <if test="balanceAmount != null">
+        balance_amount,
+      </if>
+      <if test="buyId != null">
+        buy_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="currencyId != null">
+        #{currencyId,jdbcType=BIGINT},
+      </if>
+      <if test="currencyNoteNumber != null">
+        #{currencyNoteNumber,jdbcType=INTEGER},
+      </if>
+      <if test="balanceAmount != null">
+        #{balanceAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="buyId != null">
+        #{buyId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sales.app.domain.entity.CurrencyNote">
+    <!--@mbg.generated-->
+    update t_currency_note
+    <set>
+      <if test="currencyNoteNumber != null">
+        currency_note_number = #{currencyNoteNumber,jdbcType=INTEGER},
+      </if>
+      <if test="balanceAmount != null">
+        balance_amount = #{balanceAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="buyId != null">
+        buy_id = #{buyId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where currency_id = #{currencyId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sales.app.domain.entity.CurrencyNote">
+    <!--@mbg.generated-->
+    update t_currency_note
+    set currency_note_number = #{currencyNoteNumber,jdbcType=INTEGER},
+      balance_amount = #{balanceAmount,jdbcType=DECIMAL},
+      buy_id = #{buyId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where currency_id = #{currencyId,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByUserId" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from
+    t_currency_note
+    where buy_id = #{userId,jdbcType=BIGINT}
+  </select>
+</mapper>

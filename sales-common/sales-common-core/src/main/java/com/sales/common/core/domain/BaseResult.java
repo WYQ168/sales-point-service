@@ -1,0 +1,108 @@
+package com.sales.common.core.domain;
+
+import com.sales.common.core.constant.Constants;
+import com.sales.common.core.web.result.Code;
+import com.sales.common.core.web.result.ICode;
+
+import java.io.Serializable;
+
+/**
+ * 响应信息主体
+ *
+ * @author sales
+ */
+public class BaseResult<T> implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * 成功
+     */
+    public static final int SUCCESS = Constants.SUCCESS;
+
+    /**
+     * 失败
+     */
+    public static final int FAIL = Constants.FAIL;
+    /**
+     * 返回编码
+     */
+    private int code;
+
+    /**
+     * 返回信息
+     */
+    private String msg;
+
+    /**
+     * 返回数据
+     */
+    private T data;
+
+    public static <T> BaseResult<T> ok() {
+        return restResult(null,  Code.SUCCESS.getCode(), Code.SUCCESS.getMsg());
+    }
+
+    public static <T> BaseResult<T> ok(T data) {
+        return restResult(data, Code.SUCCESS.getCode(),  Code.SUCCESS.getMsg());
+    }
+    public static <T> BaseResult<T> ok(ICode resultCode,T data) {
+        return restResult(data, resultCode.getCode(), resultCode.getMsg());
+    }
+    public static <T> BaseResult<T> ok(T data, String msg) {
+        return restResult(data, SUCCESS, msg);
+    }
+
+    public static <T> BaseResult<T> fail() {
+        return restResult(null,  Code.FAIL.getCode(),  Code.FAIL.getMsg());
+    }
+
+    public static <T> BaseResult<T> fail(String msg) {
+        return restResult(null, Code.FAIL.getCode(), msg);
+    }
+
+    public static <T> BaseResult<T> fail(T data) {
+        return restResult(data,  Code.FAIL.getCode(),  Code.FAIL.getMsg());
+    }
+
+    public static <T> BaseResult<T> fail(T data, String msg) {
+        return restResult(data,  Code.FAIL.getCode(), msg);
+    }
+    public static <T> BaseResult<T> fail(ICode errorCode) {
+        return restResult(null,  errorCode.getCode(),  errorCode.getMsg());
+    }
+    public static <T> BaseResult<T> fail(int code, String msg) {
+        return restResult(null, code, msg);
+    }
+
+    private static <T> BaseResult<T> restResult(T data, int code, String msg) {
+        BaseResult<T> apiResult = new BaseResult<>();
+        apiResult.setCode(code);
+        apiResult.setData(data);
+        apiResult.setMsg(msg);
+        return apiResult;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+}

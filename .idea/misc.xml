@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/sales-modules/sales-app-service/pom.xml" />
+        <option value="$PROJECT_DIR$/sales-common/signing-common-datascope/pom.xml" />
+        <option value="$PROJECT_DIR$/sales-common/sales-common-datasource/pom.xml" />
+        <option value="$PROJECT_DIR$/sales-common/sales-common-log/pom.xml" />
+        <option value="$PROJECT_DIR$/sales-common/sales-common-redis/pom.xml" />
+        <option value="$PROJECT_DIR$/sales-common/signing-common-security/pom.xml" />
+        <option value="$PROJECT_DIR$/sales-common/signing-common-swagger/pom.xml" />
+        <option value="$PROJECT_DIR$/sales-common/sales-common-security/pom.xml" />
+        <option value="$PROJECT_DIR$/sales-common/sales-common-swagger/pom.xml" />
+        <option value="$PROJECT_DIR$/sales-common/sales-rabbitmq-spring-boot-starter/pom.xml" />
+        <option value="$PROJECT_DIR$/sales-api/yqx-api-app/pom.xml" />
+        <option value="$PROJECT_DIR$/sales-api/yqx-api-file/pom.xml" />
+        <option value="$PROJECT_DIR$/sales-api/yqx-api-im/pom.xml" />
+        <option value="$PROJECT_DIR$/sales-api/yqx-api-system/pom.xml" />
+        <option value="$PROJECT_DIR$/sales-modules/signing-im-service/pom.xml" />
+        <option value="$PROJECT_DIR$/sales-modules/signing-file-service/pom.xml" />
+        <option value="$PROJECT_DIR$/sales-modules/sales-im-service/pom.xml" />
+        <option value="$PROJECT_DIR$/sales-modules/sales-file-service/pom.xml" />
+        <option value="$PROJECT_DIR$/sales-modules/sales-system-service/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

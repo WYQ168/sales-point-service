@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sales.app.mapper.MachineMapper">
+  <resultMap id="BaseResultMap" type="com.sales.app.domain.entity.Machine">
+    <!--@mbg.generated-->
+    <!--@Table t_machine-->
+    <id column="machine_id" jdbcType="BIGINT" property="machineId" />
+    <result column="product_id" jdbcType="BIGINT" property="productId" />
+    <result column="machine_type" jdbcType="VARCHAR" property="machineType" />
+    <result column="machine_amount" jdbcType="INTEGER" property="machineAmount" />
+    <result column="machine_number" jdbcType="VARCHAR" property="machineNumber" />
+    <result column="machine_status" jdbcType="INTEGER" property="machineStatus" />
+    <result column="binding_by" jdbcType="BIGINT" property="bindingBy" />
+    <result column="binding_time" jdbcType="TIMESTAMP" property="bindingTime" />
+    <result column="purchase_by" jdbcType="BIGINT" property="purchaseBy" />
+    <result column="purchase_time" jdbcType="TIMESTAMP" property="purchaseTime" />
+    <result column="activation_by" jdbcType="BIGINT" property="activationBy" />
+    <result column="activation_time" jdbcType="TIMESTAMP" property="activationTime" />
+    <result column="replacement_by" jdbcType="BIGINT" property="replacementBy" />
+    <result column="replacement_time" jdbcType="TIMESTAMP" property="replacementTime" />
+    <result column="unbundling_by" jdbcType="BIGINT" property="unbundlingBy" />
+    <result column="unbundling_time" jdbcType="TIMESTAMP" property="unbundlingTime" />
+    <result column="deduction_setting" jdbcType="VARCHAR" property="deductionSetting" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    machine_id, product_id, machine_type, machine_amount, machine_number, machine_status, 
+    binding_by, binding_time, purchase_by, purchase_time, activation_by, activation_time, 
+    replacement_by, replacement_time, unbundling_by, unbundling_time, deduction_setting
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_machine
+    where machine_id = #{machineId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from t_machine
+    where machine_id = #{machineId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.sales.app.domain.entity.Machine">
+    <!--@mbg.generated-->
+    insert into t_machine (machine_id, product_id, machine_type, 
+      machine_amount, machine_number, machine_status, 
+      binding_by, binding_time, purchase_by, 
+      purchase_time, activation_by, activation_time, 
+      replacement_by, replacement_time, unbundling_by, 
+      unbundling_time, deduction_setting)
+    values (#{machineId,jdbcType=BIGINT}, #{productId,jdbcType=BIGINT}, #{machineType,jdbcType=VARCHAR}, 
+      #{machineAmount,jdbcType=INTEGER}, #{machineNumber,jdbcType=VARCHAR}, #{machineStatus,jdbcType=INTEGER}, 
+      #{bindingBy,jdbcType=BIGINT}, #{bindingTime,jdbcType=TIMESTAMP}, #{purchaseBy,jdbcType=BIGINT}, 
+      #{purchaseTime,jdbcType=TIMESTAMP}, #{activationBy,jdbcType=BIGINT}, #{activationTime,jdbcType=TIMESTAMP}, 
+      #{replacementBy,jdbcType=BIGINT}, #{replacementTime,jdbcType=TIMESTAMP}, #{unbundlingBy,jdbcType=BIGINT}, 
+      #{unbundlingTime,jdbcType=TIMESTAMP}, #{deductionSetting,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sales.app.domain.entity.Machine">
+    <!--@mbg.generated-->
+    insert into t_machine
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="machineId != null">
+        machine_id,
+      </if>
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="machineType != null">
+        machine_type,
+      </if>
+      <if test="machineAmount != null">
+        machine_amount,
+      </if>
+      <if test="machineNumber != null">
+        machine_number,
+      </if>
+      <if test="machineStatus != null">
+        machine_status,
+      </if>
+      <if test="bindingBy != null">
+        binding_by,
+      </if>
+      <if test="bindingTime != null">
+        binding_time,
+      </if>
+      <if test="purchaseBy != null">
+        purchase_by,
+      </if>
+      <if test="purchaseTime != null">
+        purchase_time,
+      </if>
+      <if test="activationBy != null">
+        activation_by,
+      </if>
+      <if test="activationTime != null">
+        activation_time,
+      </if>
+      <if test="replacementBy != null">
+        replacement_by,
+      </if>
+      <if test="replacementTime != null">
+        replacement_time,
+      </if>
+      <if test="unbundlingBy != null">
+        unbundling_by,
+      </if>
+      <if test="unbundlingTime != null">
+        unbundling_time,
+      </if>
+      <if test="deductionSetting != null">
+        deduction_setting,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="machineId != null">
+        #{machineId,jdbcType=BIGINT},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=BIGINT},
+      </if>
+      <if test="machineType != null">
+        #{machineType,jdbcType=VARCHAR},
+      </if>
+      <if test="machineAmount != null">
+        #{machineAmount,jdbcType=INTEGER},
+      </if>
+      <if test="machineNumber != null">
+        #{machineNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="machineStatus != null">
+        #{machineStatus,jdbcType=INTEGER},
+      </if>
+      <if test="bindingBy != null">
+        #{bindingBy,jdbcType=BIGINT},
+      </if>
+      <if test="bindingTime != null">
+        #{bindingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="purchaseBy != null">
+        #{purchaseBy,jdbcType=BIGINT},
+      </if>
+      <if test="purchaseTime != null">
+        #{purchaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activationBy != null">
+        #{activationBy,jdbcType=BIGINT},
+      </if>
+      <if test="activationTime != null">
+        #{activationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="replacementBy != null">
+        #{replacementBy,jdbcType=BIGINT},
+      </if>
+      <if test="replacementTime != null">
+        #{replacementTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unbundlingBy != null">
+        #{unbundlingBy,jdbcType=BIGINT},
+      </if>
+      <if test="unbundlingTime != null">
+        #{unbundlingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deductionSetting != null">
+        #{deductionSetting,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sales.app.domain.entity.Machine">
+    <!--@mbg.generated-->
+    update t_machine
+    <set>
+      <if test="productId != null">
+        product_id = #{productId,jdbcType=BIGINT},
+      </if>
+      <if test="machineType != null">
+        machine_type = #{machineType,jdbcType=VARCHAR},
+      </if>
+      <if test="machineAmount != null">
+        machine_amount = #{machineAmount,jdbcType=INTEGER},
+      </if>
+      <if test="machineNumber != null">
+        machine_number = #{machineNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="machineStatus != null">
+        machine_status = #{machineStatus,jdbcType=INTEGER},
+      </if>
+      <if test="bindingBy != null">
+        binding_by = #{bindingBy,jdbcType=BIGINT},
+      </if>
+      <if test="bindingTime != null">
+        binding_time = #{bindingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="purchaseBy != null">
+        purchase_by = #{purchaseBy,jdbcType=BIGINT},
+      </if>
+      <if test="purchaseTime != null">
+        purchase_time = #{purchaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activationBy != null">
+        activation_by = #{activationBy,jdbcType=BIGINT},
+      </if>
+      <if test="activationTime != null">
+        activation_time = #{activationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="replacementBy != null">
+        replacement_by = #{replacementBy,jdbcType=BIGINT},
+      </if>
+      <if test="replacementTime != null">
+        replacement_time = #{replacementTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unbundlingBy != null">
+        unbundling_by = #{unbundlingBy,jdbcType=BIGINT},
+      </if>
+      <if test="unbundlingTime != null">
+        unbundling_time = #{unbundlingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deductionSetting != null">
+        deduction_setting = #{deductionSetting,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where machine_id = #{machineId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sales.app.domain.entity.Machine">
+    <!--@mbg.generated-->
+    update t_machine
+    set product_id = #{productId,jdbcType=BIGINT},
+      machine_type = #{machineType,jdbcType=VARCHAR},
+      machine_amount = #{machineAmount,jdbcType=INTEGER},
+      machine_number = #{machineNumber,jdbcType=VARCHAR},
+      machine_status = #{machineStatus,jdbcType=INTEGER},
+      binding_by = #{bindingBy,jdbcType=BIGINT},
+      binding_time = #{bindingTime,jdbcType=TIMESTAMP},
+      purchase_by = #{purchaseBy,jdbcType=BIGINT},
+      purchase_time = #{purchaseTime,jdbcType=TIMESTAMP},
+      activation_by = #{activationBy,jdbcType=BIGINT},
+      activation_time = #{activationTime,jdbcType=TIMESTAMP},
+      replacement_by = #{replacementBy,jdbcType=BIGINT},
+      replacement_time = #{replacementTime,jdbcType=TIMESTAMP},
+      unbundling_by = #{unbundlingBy,jdbcType=BIGINT},
+      unbundling_time = #{unbundlingTime,jdbcType=TIMESTAMP},
+      deduction_setting = #{deductionSetting,jdbcType=VARCHAR}
+    where machine_id = #{machineId,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectMyMachineList" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from
+    t_machine
+    where
+    purchase_by = #{userId,jdbcType=BIGINT}
+    <if test="machineNumber != null and machineNumber != ''">
+      and machine_number = #{machineNumber,jdbcType=VARCHAR}
+    </if>
+    <if test="machineStatus != null">
+      and machine_status = #{machineStatus,jdbcType=INTEGER}
+    </if>
+  </select>
+
+  <select id="selectPersonalPerformance" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from t_machine
+    where purchase_by =#{userId,jdbcType=BIGINT}
+    and machine_status = 2
+    <if test="searchValue != null and searchValue != '' and searchType == 'day'">
+      and substring_index(create_time, ' ', 1) = #{searchValue,jdbcType=VARCHAR}
+    </if>
+    <if test="searchValue != null and searchValue != '' and searchType == 'month'">
+      and substring(create_time, 1,6)  = #{searchValue,jdbcType=VARCHAR}
+    </if>
+  </select>
+</mapper>

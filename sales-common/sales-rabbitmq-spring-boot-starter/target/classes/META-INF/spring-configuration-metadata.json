@@ -1,0 +1,56 @@
+{
+  "groups": [
+    {
+      "name": "spring.rabbitmq",
+      "type": "com.sales.rabbitmq.config.RabbitMQProperties",
+      "sourceType": "com.sales.rabbitmq.config.RabbitMQProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "spring.rabbitmq.enable",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.sales.rabbitmq.config.RabbitMQProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "spring.rabbitmq.host",
+      "type": "java.lang.String",
+      "sourceType": "com.sales.rabbitmq.config.RabbitMQProperties"
+    },
+    {
+      "name": "spring.rabbitmq.password",
+      "type": "java.lang.String",
+      "sourceType": "com.sales.rabbitmq.config.RabbitMQProperties"
+    },
+    {
+      "name": "spring.rabbitmq.port",
+      "type": "java.lang.Integer",
+      "sourceType": "com.sales.rabbitmq.config.RabbitMQProperties",
+      "defaultValue": 0
+    },
+    {
+      "name": "spring.rabbitmq.publisher-confirms",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.sales.rabbitmq.config.RabbitMQProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "spring.rabbitmq.publisher-returns",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.sales.rabbitmq.config.RabbitMQProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "spring.rabbitmq.username",
+      "type": "java.lang.String",
+      "sourceType": "com.sales.rabbitmq.config.RabbitMQProperties"
+    },
+    {
+      "name": "spring.rabbitmq.virtual-host",
+      "type": "java.lang.String",
+      "sourceType": "com.sales.rabbitmq.config.RabbitMQProperties"
+    }
+  ],
+  "hints": []
+}

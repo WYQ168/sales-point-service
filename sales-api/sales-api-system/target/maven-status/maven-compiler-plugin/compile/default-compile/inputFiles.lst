@@ -1,0 +1,17 @@
+E:\workspace_self\point-sales-service\sales-api\sales-api-system\src\main\java\com\sales\system\api\domain\SysDictType.java
+E:\workspace_self\point-sales-service\sales-api\sales-api-system\src\main\java\com\sales\system\api\RemoteLogService.java
+E:\workspace_self\point-sales-service\sales-api\sales-api-system\src\main\java\com\sales\system\api\domain\SysUser.java
+E:\workspace_self\point-sales-service\sales-api\sales-api-system\src\main\java\com\sales\system\api\domain\request\PassWordModifyReq.java
+E:\workspace_self\point-sales-service\sales-api\sales-api-system\src\main\java\com\sales\system\api\domain\SysFile.java
+E:\workspace_self\point-sales-service\sales-api\sales-api-system\src\main\java\com\sales\system\api\factory\RemoteFileFallbackFactory.java
+E:\workspace_self\point-sales-service\sales-api\sales-api-system\src\main\java\com\sales\system\api\domain\SysDept.java
+E:\workspace_self\point-sales-service\sales-api\sales-api-system\src\main\java\com\sales\system\api\RemoteFileService.java
+E:\workspace_self\point-sales-service\sales-api\sales-api-system\src\main\java\com\sales\system\api\domain\SysLoginInfo.java
+E:\workspace_self\point-sales-service\sales-api\sales-api-system\src\main\java\com\sales\system\api\domain\SysOperLog.java
+E:\workspace_self\point-sales-service\sales-api\sales-api-system\src\main\java\com\sales\system\api\factory\RemoteLogFallbackFactory.java
+E:\workspace_self\point-sales-service\sales-api\sales-api-system\src\main\java\com\sales\system\api\domain\SysRole.java
+E:\workspace_self\point-sales-service\sales-api\sales-api-system\src\main\java\com\sales\system\api\RemoteSysUserService.java
+E:\workspace_self\point-sales-service\sales-api\sales-api-system\src\main\java\com\sales\system\api\domain\SysDictData.java
+E:\workspace_self\point-sales-service\sales-api\sales-api-system\src\main\java\com\sales\system\api\factory\RemoteSysUserFallbackFactory.java
+E:\workspace_self\point-sales-service\sales-api\sales-api-system\src\main\java\com\sales\system\api\model\LoginUser.java
+E:\workspace_self\point-sales-service\sales-api\sales-api-system\src\main\java\com\sales\system\api\domain\AppUser.java

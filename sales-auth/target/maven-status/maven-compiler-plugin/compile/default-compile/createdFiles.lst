@@ -1,0 +1,11 @@
+com\sales\auth\form\LoginBody.class
+com\sales\auth\service\AppLoginService.class
+com\sales\auth\controller\TokenController.class
+com\sales\auth\enums\ErrorCodeEnum.class
+com\sales\auth\service\SysLoginService.class
+com\sales\auth\form\RegisterReq.class
+com\sales\auth\form\RegisterBody.class
+com\sales\auth\enums\LoginType.class
+com\sales\auth\enums\StatusType.class
+com\sales\auth\service\BaseLogin.class
+com\sales\auth\SalesAuthApplication.class

@@ -1,0 +1,6 @@
+com\sales\common\log\aspect\LogAspect.class
+com\sales\common\log\enums\BusinessType.class
+com\sales\common\log\enums\BusinessStatus.class
+com\sales\common\log\annotation\Log.class
+com\sales\common\log\enums\OperatorType.class
+com\sales\common\log\service\AsyncLogService.class
