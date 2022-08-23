@@ -7,6 +7,7 @@ import java.util.Map;
 
 public enum OrderStatusEnum {
     NEW_ORDER(0000,"待支付"),
+    CANCEL_ORDER(0001,"取消支付"),
     PAY_FAIL(999,"支付失败"),
     PAY_SUC(1000,"支付成功"),
     INTEGRAL_SUC(1001,"兑换成功"),

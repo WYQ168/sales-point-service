@@ -6,6 +6,7 @@ import com.sales.app.domain.request.MallProductReq;
 import com.sales.app.domain.request.TradeInfoReq;
 import com.sales.app.service.OrderService;
 import com.sales.app.service.SalesProductService;
+import com.sales.app.service.UnionpayService;
 import com.sales.common.core.domain.BaseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -34,6 +35,9 @@ public class MallController {
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    private UnionpayService unionpayService;
+
     @ApiOperation(value = "商城POS机产品列表")
     @GetMapping("/getSalesProductList")
     public BaseResult<List<SalesProduct>> getSalesProductList(MallProductReq req){
@@ -54,7 +58,7 @@ public class MallController {
     @ApiOperation(value = "银联侧调起支付接口")
     @PostMapping("/openAndConsume")
     public BaseResult<?> openAndConsume(HttpServletRequest req, HttpServletResponse resp, TradeInfoReq tradeInfo) throws IOException {
-        orderService.openAndConsume(req, resp, tradeInfo);
+        unionpayService.openAndConsume(req, resp, tradeInfo);
         return BaseResult.ok();
     }
 

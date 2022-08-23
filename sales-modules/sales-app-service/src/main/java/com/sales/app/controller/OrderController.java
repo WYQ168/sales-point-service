@@ -1,5 +1,7 @@
 package com.sales.app.controller;
 
+import com.alipay.api.AlipayApiException;
+import com.alipay.api.response.AlipayTradeAppPayResponse;
 import com.sales.app.domain.entity.Order;
 import com.sales.app.domain.request.IntegralOrderReq;
 import com.sales.app.domain.response.IntegralOrderResp;
@@ -47,6 +49,18 @@ public class OrderController {
     @PostMapping("/getUnpaidGiftOrderList")
     public BaseResult<List<Order>> getUnpaidGiftOrderList(Long userId){
         return BaseResult.ok(salesProductService.getUnpaidGiftOrderList(userId));
+    }
+
+    @ApiOperation(value = "取消订单支付")
+    @PostMapping("/cancelIntegralOrder")
+    public BaseResult<Integer> cancelIntegralOrder(String orderId){
+        return BaseResult.ok(orderService.cancelIntegralOrder(orderId));
+    }
+
+    @ApiOperation(value = "发起支付宝支付")
+    @PostMapping("/goAliPay")
+    public BaseResult<AlipayTradeAppPayResponse> goAliPay(String orderId) throws AlipayApiException {
+        return BaseResult.ok(orderService.goAliPay(orderId));
     }
 
 }
