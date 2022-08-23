@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sales.app.mapper.BucklesMapper">
+
+    <resultMap type="com.sales.app.domain.entity.Buckles" id="BucklesResult">
+        <result property="bucklesId" column="buckles_id"/>
+        <result property="productId" column="product_id"/>
+        <result property="bucklesMoney" column="buckles_money"/>
+        <result property="bucklesStatus" column="buckles_status"/>
+        <result property="spareField1" column="spare_field1"/>
+        <result property="spareField2" column="spare_field2"/>
+        <result property="spareField3" column="spare_field3"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <sql id="selectBucklesVo">
+        select buckles_id,
+               product_id,
+               buckles_money,
+               buckles_status,
+               spare_field1,
+               spare_field2,
+               spare_field3,
+               create_by,
+               create_time,
+               update_by,
+               update_time
+        from t_buckles
+    </sql>
+
+    <select id="selectBucklesList" parameterType="com.sales.app.domain.entity.Buckles" resultMap="BucklesResult">
+        <include refid="selectBucklesVo"/>
+        <where>
+            <if test="bucklesId != null ">and buckles_id = #{bucklesId}</if>
+            <if test="productId != null ">and product_id = #{productId}</if>
+            <if test="bucklesMoney != null ">and buckles_money = #{bucklesMoney}</if>
+            <if test="bucklesStatus != null ">and buckles_status = #{bucklesStatus}</if>
+            <if test="spareField1 != null  and spareField1 != '' ">and spare_field1 = #{spareField1}</if>
+            <if test="spareField2 != null  and spareField2 != '' ">and spare_field2 = #{spareField2}</if>
+            <if test="spareField3 != null  and spareField3 != '' ">and spare_field3 = #{spareField3}</if>
+            <if test="createBy != null  and createBy != '' ">and create_by = #{createBy}</if>
+            <if test="createTime != null ">and create_time = #{createTime}</if>
+            <if test="updateBy != null  and updateBy != '' ">and update_by = #{updateBy}</if>
+            <if test="updateTime != null ">and update_time = #{updateTime}</if>
+        </where>
+    </select>
+
+    <select id="selectBucklesById" parameterType="Long" resultMap="BucklesResult">
+        <include refid="selectBucklesVo"/>
+        where buckles_id = #{bucklesId}
+    </select>
+
+    <insert id="insertBuckles" parameterType="com.sales.app.domain.entity.Buckles" useGeneratedKeys="true" keyProperty="bucklesId">
+        insert into t_buckles
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="productId != null  ">product_id,</if>
+            <if test="bucklesMoney != null  ">buckles_money,</if>
+            <if test="bucklesStatus != null  ">buckles_status,</if>
+            <if test="spareField1 != null  and spareField1 != ''  ">spare_field1,</if>
+            <if test="spareField2 != null  and spareField2 != ''  ">spare_field2,</if>
+            <if test="spareField3 != null  and spareField3 != ''  ">spare_field3,</if>
+            <if test="createBy != null  and createBy != ''  ">create_by,</if>
+            <if test="createTime != null  ">create_time,</if>
+            <if test="updateBy != null  and updateBy != ''  ">update_by,</if>
+            <if test="updateTime != null  ">update_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="productId != null  ">#{productId},</if>
+            <if test="bucklesMoney != null  ">#{bucklesMoney},</if>
+            <if test="bucklesStatus != null  ">#{bucklesStatus},</if>
+            <if test="spareField1 != null  and spareField1 != ''  ">#{spareField1},</if>
+            <if test="spareField2 != null  and spareField2 != ''  ">#{spareField2},</if>
+            <if test="spareField3 != null  and spareField3 != ''  ">#{spareField3},</if>
+            <if test="createBy != null  and createBy != ''  ">#{createBy},</if>
+            <if test="createTime != null  ">#{createTime},</if>
+            <if test="updateBy != null  and updateBy != ''  ">#{updateBy},</if>
+            <if test="updateTime != null  ">#{updateTime},</if>
+        </trim>
+    </insert>
+
+    <update id="updateBuckles" parameterType="com.sales.app.domain.entity.Buckles">
+        update t_buckles
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="productId != null  ">product_id = #{productId},</if>
+            <if test="bucklesMoney != null  ">buckles_money = #{bucklesMoney},</if>
+            <if test="bucklesStatus != null  ">buckles_status = #{bucklesStatus},</if>
+            <if test="spareField1 != null  and spareField1 != ''  ">spare_field1 = #{spareField1},</if>
+            <if test="spareField2 != null  and spareField2 != ''  ">spare_field2 = #{spareField2},</if>
+            <if test="spareField3 != null  and spareField3 != ''  ">spare_field3 = #{spareField3},</if>
+            <if test="createBy != null  and createBy != ''  ">create_by = #{createBy},</if>
+            <if test="createTime != null  ">create_time = #{createTime},</if>
+            <if test="updateBy != null  and updateBy != ''  ">update_by = #{updateBy},</if>
+            <if test="updateTime != null  ">update_time = #{updateTime},</if>
+        </trim>
+        where buckles_id = #{bucklesId}
+    </update>
+
+    <delete id="deleteBucklesById" parameterType="Long">
+        delete
+        from t_buckles
+        where buckles_id = #{bucklesId}
+    </delete>
+
+    <delete id="deleteBucklesByIds" parameterType="String">
+        delete from t_buckles where buckles_id in
+        <foreach item="bucklesId" collection="array" open="(" separator="," close=")">
+            #{bucklesId}
+        </foreach>
+    </delete>
+
+</mapper>
