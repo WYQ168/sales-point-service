@@ -1,7 +1,7 @@
 package com.sales.system.service;
 
 import com.sales.system.domain.entity.Menu;
-import com.sales.system.domain.response.MenuResp;
+import com.sales.system.domain.resp.MenuResp;
 
 import java.util.List;
 

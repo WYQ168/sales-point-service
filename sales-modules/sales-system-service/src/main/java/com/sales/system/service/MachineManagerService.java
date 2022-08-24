@@ -1,10 +1,9 @@
 package com.sales.system.service;
 
 import com.sales.system.domain.entity.GiftActivity;
-import com.sales.system.domain.entity.Machine;
 import com.sales.system.domain.entity.SalesProduct;
-import com.sales.system.domain.request.MachineQueryReq;
-import com.sales.system.domain.request.MachineUpdateReq;
+import com.sales.system.domain.req.MachineQueryReq;
+import com.sales.system.domain.req.MachineUpdateReq;
 
 import java.util.List;
 
