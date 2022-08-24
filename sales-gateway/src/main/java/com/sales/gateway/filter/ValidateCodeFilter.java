@@ -55,7 +55,7 @@ public class ValidateCodeFilter extends AbstractGatewayFilterFactory<Object>
             {
                 String rspStr = resolveBodyFromRequest(request);
                 JSONObject obj = JSONObject.parseObject(rspStr);
-                if(StringUtils.isNotEmpty(obj.getString(LOGIN_TYPE)) && obj.getString(LOGIN_TYPE).equals("password")){
+                if(StringUtils.isNotEmpty(obj.getString(LOGIN_TYPE)) && obj.getString(LOGIN_TYPE).equals("smsCode")){
                     validateCodeService.checkCapcha(obj.getString(CODE), obj.getString(UUID));
                 }else{
                     return chain.filter(exchange);

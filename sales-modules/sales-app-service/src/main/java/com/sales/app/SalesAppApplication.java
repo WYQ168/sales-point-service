@@ -14,6 +14,7 @@ public class SalesAppApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SalesAppApplication.class, args);
+        System.out.println("(♥◠‿◠)ﾉﾞ  SalesApp启动成功   ლ(´ڡ`ლ)ﾞ  \n");
     }
 
 }

@@ -168,6 +168,7 @@ public class SecurityUtils {
     }
     public static void main(String[] arg){
         System.out.println(encryptPassword("123456"));
+        System.out.println(matchesPassword("123456","$2a$10$SWpY5lDTIRrYZnPnJtYj0eydZCpt3DFiHyGWpcxCEmF8CeTJ2WWly"));
     }
 
 }

@@ -41,6 +41,8 @@ public class LoginBody {
     @NotBlank(message = "登录类型不能为空")
     private String loginType;
 
+/*
     @NotBlank(message = "uuid不能为空")
+*/
     private String uuid;
 }

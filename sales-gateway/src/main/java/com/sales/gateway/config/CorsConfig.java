@@ -26,7 +26,7 @@ import reactor.core.publisher.Mono;
  * 修改历史
  * 序号 	       日期 		        修改人 		         修改原因
  */
-//@Configuration
+@Configuration
 public class CorsConfig {
 	private static final String ALL = "*";
 	private static final String MAX_AGE = "18000L";

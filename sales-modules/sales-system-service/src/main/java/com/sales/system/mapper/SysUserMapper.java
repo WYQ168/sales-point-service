@@ -1,17 +1,17 @@
 package com.sales.system.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.sales.system.domain.entity.SysUser;
 
-public interface SysUserMapper {
-    int deleteByPrimaryKey(Long sysUserId);
+import java.util.List;
 
-    int insert(SysUser record);
+/**
+ * 系统用户 数据层
+ * 
+ * @author zhangtailong
+ * @date 2022-08-24
+ */
+public interface SysUserMapper extends BaseMapper<SysUser>
+{
 
-    int insertSelective(SysUser record);
-
-    SysUser selectByPrimaryKey(Long sysUserId);
-
-    int updateByPrimaryKeySelective(SysUser record);
-
-    int updateByPrimaryKey(SysUser record);
 }
