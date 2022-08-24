@@ -118,4 +118,11 @@ public class UserServiceImpl implements UserService {
         }
         return null;
     }
+
+    @Override
+    public Integer cancelUserPermission(Long userId) {
+        AppUser appUser = appUserMapper.selectByPrimaryKey(userId);
+        appUser.setDelFlag(1);
+        return appUserMapper.updateByPrimaryKeySelective(appUser);
+    }
 }

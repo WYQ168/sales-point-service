@@ -337,7 +337,8 @@
     from
     t_app_user
     where
-    recommend_code = #{inviteCode,jdbcType=VARCHAR}
+    del_flag = 0
+    and recommend_code = #{inviteCode,jdbcType=VARCHAR}
   </select>
 
   <select id="selectByUserName" resultMap="BaseResultMap">
@@ -353,13 +354,13 @@
   <select id="selectMyMerchantList" resultMap="BaseResultMap">
     select <include refid="Base_Column_List"/>
     from t_app_user
-    <where>
-          <if test="merchantIds != null and merchantIds.size() != 0">
-            user_id in
+    where
+      del_flag = 0
+      <if test="merchantIds != null and merchantIds.size() != 0">
+        and user_id in
             <foreach collection="merchantIds" item="merchantId" open="(" separator="," close=")">
               #{merchantId,jdbcType=BIGINT}
             </foreach>
-          </if>
-    </where>
+      </if>
   </select>
 </mapper>

@@ -21,7 +21,7 @@ import java.util.List;
 
 @Api(value = "我的伙伴、商户接口")
 @RestController
-@RequestMapping(value = "/partner")
+@RequestMapping(value = "/partnerMerchant")
 public class PartnerMerchantController {
     @Autowired
     private UserService userService;

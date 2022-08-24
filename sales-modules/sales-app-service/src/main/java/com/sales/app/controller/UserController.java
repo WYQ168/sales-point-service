@@ -42,5 +42,9 @@ public class UserController {
         return BaseResult.ok(userService.getUserInfo(userName));
     }
 
-
+    @ApiModelProperty(value = "注销用户")
+    @PostMapping("/cancelUserPermission")
+    public BaseResult<Integer> cancelUserPermission(Long userId){
+        return BaseResult.ok(userService.cancelUserPermission(userId));
+    }
 }

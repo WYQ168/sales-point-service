@@ -59,8 +59,17 @@ public interface UserService {
 
     /**
      * 通过用户名获取用户信息
+     *
      * @param userName 用户名
      * @return 用户信息
      */
     JSONObject getUserInfo(String userName);
+
+    /**
+     * 注销用户
+     *
+     * @param userId 用户id
+     * @return 结果
+     */
+    Integer cancelUserPermission(Long userId);
 }
