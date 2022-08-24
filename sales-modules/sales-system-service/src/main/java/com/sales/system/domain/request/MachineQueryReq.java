@@ -1,4 +1,4 @@
-package com.sales.system.domain.req;
+package com.sales.system.domain.request;
 
 import io.swagger.annotations.ApiModel;
 import lombok.Data;

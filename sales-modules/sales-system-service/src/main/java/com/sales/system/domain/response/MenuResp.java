@@ -1,4 +1,4 @@
-package com.sales.system.domain.resp;
+package com.sales.system.domain.response;
 
 /**
  * @description: 菜单返回类

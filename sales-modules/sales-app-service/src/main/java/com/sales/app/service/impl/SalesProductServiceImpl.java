@@ -101,7 +101,7 @@ public class SalesProductServiceImpl implements SalesProductService {
                 .setUserId(req.getUserId())
                 .setOrderNo(OrderTypeEnum.INTEGRAL.getOrderCode() + simpleDateFormat + MathUtil.getRandomNumString(5))
                 .setOrderType(OrderTypeEnum.INTEGRAL.getOrderType())
-                .setOrderStatus(OrderStatusEnum.INTEGRAL_SUC.getState())
+                .setOrderStatus(OrderStatusEnum.EXCHANGE_AUDIT.getState())
                 .setCreateTime(new Date())
                 .setCreateBy(req.getUserId());
         orderMapper.insert(order);

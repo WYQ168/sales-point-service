@@ -1,7 +1,7 @@
 package com.sales.system.mapper;
 
 import com.sales.system.domain.entity.SalesProduct;
-import com.sales.system.domain.req.MachineQueryReq;
+import com.sales.system.domain.request.MachineQueryReq;
 
 import java.util.List;
 

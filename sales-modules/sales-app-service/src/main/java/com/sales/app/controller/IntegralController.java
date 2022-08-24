@@ -30,13 +30,13 @@ public class IntegralController {
     @Autowired
     private IncomeRecordService incomeRecordService;
 
-    @ApiOperation(value = "积分兑换产品列表")
+    @ApiOperation(value = "积分兑换的产品列表")
     @GetMapping("/getIntegralProducts")
     public BaseResult<List<SalesProduct>> getIntegralProducts(@RequestParam("productLabel") String productLabel){
         return BaseResult.ok(salesProductService.getIntegralProducts(productLabel));
     }
 
-    @ApiOperation(value = "发起积分兑换")
+    @ApiOperation(value = "发起积分兑换申请")
     @PostMapping("/exchangeSalesProduct")
     public BaseResult<Integer> exchangeSalesProduct(@RequestBody ExchangeIntegralReq req){
         return BaseResult.ok(salesProductService.exchangeSalesProduct(req));

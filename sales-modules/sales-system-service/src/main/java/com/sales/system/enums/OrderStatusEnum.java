@@ -1,4 +1,4 @@
-package com.sales.app.enums;
+package com.sales.system.enums;
 
 
 import java.util.EnumSet;

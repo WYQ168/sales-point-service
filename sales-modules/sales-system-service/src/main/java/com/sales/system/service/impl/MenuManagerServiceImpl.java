@@ -5,7 +5,7 @@ import com.sales.common.core.exception.BaseException;
 import com.sales.system.domain.entity.Menu;
 import com.sales.system.domain.entity.MenuMapper;
 import com.sales.system.domain.entity.SysUser;
-import com.sales.system.domain.resp.MenuResp;
+import com.sales.system.domain.response.MenuResp;
 import com.sales.system.enums.SystemEnum;
 import com.sales.system.service.MenuManagerService;
 import com.sales.system.utils.UserDataUtils;
