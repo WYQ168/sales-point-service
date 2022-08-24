@@ -1,5 +1,6 @@
 package com.sales.app.controller;
 
+import com.alipay.api.AlipayApiException;
 import com.sales.app.domain.entity.SalesProduct;
 import com.sales.app.domain.request.MachineByMallReq;
 import com.sales.app.domain.request.MallProductReq;
@@ -49,9 +50,10 @@ public class MallController {
     public BaseResult<SalesProduct> getSalesProductInfo(@RequestParam("productId") Long productId){
         return BaseResult.ok(salesProductService.getProductInfo(productId));
     }
-    @ApiOperation(value = "在商城购买POS机-提交订单按钮")
+
+    @ApiOperation(value = "商城点击-购买POS机")
     @PostMapping("/buyMachineByMall")
-    public BaseResult<String> buyMachineByMall(MachineByMallReq req){
+    public BaseResult<String> buyMachineByMall(MachineByMallReq req) throws AlipayApiException {
         return BaseResult.ok(salesProductService.buyMachineByMall(req));
     }
 

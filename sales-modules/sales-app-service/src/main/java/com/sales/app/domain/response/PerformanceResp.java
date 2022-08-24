@@ -28,4 +28,7 @@ public class PerformanceResp {
 
     @ApiModelProperty(value = "新增伙伴数")
     private Integer newPartnerNumber;
+
+    @ApiModelProperty(value = "新增商户数")
+    private Integer newMerchants;
 }

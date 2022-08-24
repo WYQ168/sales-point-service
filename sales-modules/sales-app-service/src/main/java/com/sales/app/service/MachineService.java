@@ -27,9 +27,18 @@ public interface MachineService {
     Integer machineIssued(MachineIssuedReq req);
 
     /**
+     * 获取我的个人业绩数据
      *
      * @param req 基础查询类
      * @return 个人业绩信息
      */
     PerformanceResp getPersonalPerformance(BaseQueryReq req);
+
+    /**
+     * 获取我的伙伴业绩数据
+     *
+     * @param req 基础查询类
+     * @return 伙伴业绩信息
+     */
+    PerformanceResp getPartnerPerformance(BaseQueryReq req);
 }

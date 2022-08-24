@@ -280,4 +280,12 @@
     and order_type = 'gift'
     and order_status = 999
   </select>
+
+  <select id="selectMallOrderList" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from t_order
+    where user_id = #{userId,jdbcType=BIGINT}
+    and order_type = 'mall'
+    and order_status in(0001, 1000, 3000, 4000)
+  </select>
 </mapper>

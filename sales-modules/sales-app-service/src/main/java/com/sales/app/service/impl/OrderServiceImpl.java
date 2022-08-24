@@ -8,11 +8,14 @@ import com.alipay.api.request.AlipayTradeAppPayRequest;
 import com.alipay.api.response.AlipayTradeAppPayResponse;
 import com.sales.app.constants.AliPayConstants;
 import com.sales.app.domain.entity.Order;
+import com.sales.app.domain.pojo.GoodInfo;
 import com.sales.app.domain.request.IntegralOrderReq;
+import com.sales.app.domain.request.OrderQueryReq;
 import com.sales.app.domain.response.IntegralOrderResp;
 import com.sales.app.enums.OrderStatusEnum;
 import com.sales.app.mapper.OrderMapper;
 import com.sales.app.service.OrderService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,12 +28,12 @@ import java.util.List;
  */
 
 @Service
+@AllArgsConstructor
 public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderMapper orderMapper;
 
-    @Autowired
-    private AliPayConstants aliPayConstants;
+    private final AliPayConstants aliPayConstants;
 
     @Override
     public List<IntegralOrderResp> getIntegralOrderList(IntegralOrderReq req) {
@@ -40,7 +43,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Integer cancelIntegralOrder(String orderId) {
         Order order = orderMapper.selectByPrimaryKey(orderId);
-        if(order != null){
+        if (order != null) {
             order.setOrderStatus(OrderStatusEnum.CANCEL_ORDER.getState());
             return orderMapper.updateByPrimaryKeySelective(order);
         }
@@ -59,12 +62,24 @@ public class OrderServiceImpl implements OrderService {
         JSONObject bizContent = new JSONObject();
         bizContent.put("out_trade_no", order.getOrderNo());
         bizContent.put("total_amount", order.getTotalPrice());
-        bizContent.put("subject", JSONObject.parse(order.getGoodInfo()));
+        bizContent.put("subject", ((GoodInfo) JSONObject.parse(order.getGoodInfo())).getGoodName());
         bizContent.put("product_code", "QUICK_MSECURITY_PAY");
 
         request.setBizContent(bizContent.toString());
         AlipayTradeAppPayResponse response = alipayClient.sdkExecute(request);
+        if (response.isSuccess()) {
+            order.setOrderStatus(OrderStatusEnum.PAY_SUC.getState());
+            orderMapper.updateByPrimaryKeySelective(order);
+        } else {
+            order.setOrderStatus(OrderStatusEnum.PAY_FAIL.getState());
+            orderMapper.updateByPrimaryKeySelective(order);
+        }
         return response;
+    }
+
+    @Override
+    public List<Order> getMallOrderList(OrderQueryReq req) {
+        return orderMapper.selectMallOrderList(req);
     }
 
 }

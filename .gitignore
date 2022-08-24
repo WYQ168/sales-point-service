@@ -1,0 +1,32 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+.gitignore
+*.class
+sales-api/sales-api-app/target
+sales-api/sales-api-file/target
+sales-api/sales-api-im/target
+sales-api/sales-api-system/target
+sales-auth/target
+sales-common/sales-common-core/target
+sales-common/sales-common-datascope/target
+sales-common/sales-common-datasource/target
+sales-common/sales-common-log/target
+sales-common/sales-common-redis/target
+sales-common/sales-common-security/target
+sales-common/sales-common-swagger/target
+sales-common/sales-rabbitmq-spring-boot-starter/target
+sales-gateway/target
+sales-modules/sales-app-service/target
+sales-modules/sales-file-service/src/test/java/com/signing/
+sales-modules/sales-file-service/target
+sales-modules/sales-im-service/src/test
+sales-modules/sales-im-service/target
+sales-modules/sales-system-service/target
+sales-modules/sales-system-service/src/main/java/com/sales/system/domain/response/

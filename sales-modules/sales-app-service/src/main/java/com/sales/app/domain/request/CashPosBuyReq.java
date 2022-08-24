@@ -19,7 +19,7 @@ public class CashPosBuyReq {
     @ApiModelProperty(value = "用户id")
     private Long userId;
 
-    @ApiModelProperty(value = "购买张数")
+    @ApiModelProperty(value = "购买数量")
     private Integer buyAmount;
 
     @ApiModelProperty(value = "快递单号")
@@ -30,6 +30,9 @@ public class CashPosBuyReq {
 
     @ApiModelProperty(value = "机具号")
     private String machineNumber;
+
+    @ApiModelProperty(value = "机具名称")
+    private String machineName;
 
     @ApiModelProperty(value = "寄回数量")
     private Integer sendBackNumber;

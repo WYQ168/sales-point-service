@@ -268,4 +268,23 @@
       and substring(create_time, 1,6)  = #{searchValue,jdbcType=VARCHAR}
     </if>
   </select>
+
+  <select id="selectPartnerMachineList" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from t_machine
+    where machine_status = 2
+    <if test="queryIds != null and queryIds.size() != 0">
+      and binding_by in
+      <foreach item="bindingBy" collection="queryIds" open="(" separator="," close=")">
+        #{bindingBy,jdbcType=BIGINT}
+      </foreach>
+    </if>
+    <if test="searchValue != null and searchValue != '' and searchType == 'day'">
+      and substring_index(create_time, ' ', 1) = #{searchValue,jdbcType=VARCHAR}
+    </if>
+    <if test="searchValue != null and searchValue != '' and searchType == 'month'">
+      and substring(create_time, 1,6)  = #{searchValue,jdbcType=VARCHAR}
+    </if>
+
+  </select>
 </mapper>

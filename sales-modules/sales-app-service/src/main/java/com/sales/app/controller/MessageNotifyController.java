@@ -44,7 +44,7 @@ public class MessageNotifyController {
         // 返回接收成功，失败的响应消息可自定义, 务必按照文档约定的格式返回
         Response resp = new Response();
         resp.setRetCode("00");
-        resp.setRetMsg("接收成功");
+        resp.setRetMsg("SUCCESS");
         return resp;
     }
 

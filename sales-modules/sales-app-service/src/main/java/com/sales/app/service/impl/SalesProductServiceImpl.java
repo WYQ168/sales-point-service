@@ -1,6 +1,8 @@
 package com.sales.app.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.alipay.api.AlipayApiException;
+import com.alipay.api.response.AlipayTradeAppPayResponse;
 import com.sales.app.constants.StewardLevelConstants;
 import com.sales.app.domain.entity.*;
 import com.sales.app.domain.request.ExchangeIntegralReq;
@@ -11,6 +13,7 @@ import com.sales.app.domain.response.GiftActivityResp;
 import com.sales.app.enums.OrderStatusEnum;
 import com.sales.app.enums.OrderTypeEnum;
 import com.sales.app.mapper.*;
+import com.sales.app.service.OrderService;
 import com.sales.app.service.SalesProductService;
 import com.sales.app.utils.MathUtil;
 import com.sales.common.core.exception.ServiceException;
@@ -50,6 +53,9 @@ public class SalesProductServiceImpl implements SalesProductService {
 
     @Autowired
     private CurrencyNoteMapper currencyNoteMapper;
+
+    @Autowired
+    private OrderService orderService;
 
     @Override
     public List<SalesProduct> getProductList(MallProductReq req) {
@@ -109,9 +115,9 @@ public class SalesProductServiceImpl implements SalesProductService {
 
         String simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("goodName",req.getGiftName());
-        jsonObject.put("goodPrice",req.getGiftAmount());
-        jsonObject.put("goodNumber",req.getGiftQuantity());
+        jsonObject.put("goodName", req.getGiftName());
+        jsonObject.put("goodPrice", req.getGiftAmount());
+        jsonObject.put("goodNumber", req.getGiftQuantity());
         // 生成礼包购买的订单
         Order order = new Order();
         order.setOrderId(UUID.randomUUID().toString().replace("-", ""))
@@ -149,7 +155,7 @@ public class SalesProductServiceImpl implements SalesProductService {
     }
 
     @Override
-    public String buyMachineByMall(MachineByMallReq req) {
+    public String buyMachineByMall(MachineByMallReq req) throws AlipayApiException {
         AppUser appUser = userMapper.selectByPrimaryKey(req.getUserId());
         if (req.getMachineAmount() < 1000) {
             appUser.setStewardLevel(StewardLevelConstants.ORDINARY);
@@ -161,34 +167,41 @@ public class SalesProductServiceImpl implements SalesProductService {
             appUser.setStewardLevel(StewardLevelConstants.GOLD);
 
         }
+
         String simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("goodName", req.getGoodName());
+        jsonObject.put("goodPrice", req.getTotalPrice());
+        jsonObject.put("goodNumber", req.getMachineAmount());
         Order order = new Order();
         order.setOrderId(UUID.randomUUID().toString().replace("-", ""))
                 .setUserId(req.getUserId())
                 .setTotalPrice(req.getTotalPrice())
+                .setGoodInfo(jsonObject.toJSONString())
                 .setOrderNo(OrderTypeEnum.MALL.getOrderCode() + simpleDateFormat + MathUtil.getRandomNumString(5))
                 .setOrderType(OrderTypeEnum.MALL.getOrderType())
                 .setOrderStatus(OrderStatusEnum.NEW_ORDER.getState())
                 .setCreateTime(new Date())
                 .setCreateBy(req.getUserId())
                 .setOrderAddressId(req.getAddressId());
-        // 可以使用流通券抵扣和现金方式购买
+
+        orderMapper.insert(order);
+        // 使用流通券抵扣方式购买
         if ("currencyNote".equals(req.getBuyType())) {
             CurrencyNote currencyNote = currencyNoteMapper.selectByUserId(req.getUserId());
             if (currencyNote.getCurrencyNoteNumber() > req.getNoteAmount()) {
+                // 流通券方式支付
+                order.setPayType(4);
                 currencyNote.setCurrencyNoteNumber(currencyNote.getCurrencyNoteNumber() - req.getNoteAmount());
                 currencyNoteMapper.updateByPrimaryKeySelective(currencyNote);
             }
-        } else if ("cash".equals(req.getBuyType())) {
-
-            // TODO 支付宝支付
-            if (false) {
-                order.setOrderStatus(OrderStatusEnum.PAY_FAIL.getState());
-            }
+        } // 使用支付宝支付购买
+        else if ("cash".equals(req.getBuyType())) {
+            // 现金支付
+            order.setPayType(1);
         }
-
-        orderMapper.insert(order);
+        orderMapper.updateByPrimaryKeySelective(order);
         userMapper.updateByPrimaryKeySelective(appUser);
-        return null;
+        return order.getOrderId();
     }
 }

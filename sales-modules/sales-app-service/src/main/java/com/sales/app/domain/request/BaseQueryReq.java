@@ -4,6 +4,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * @description: 基础查询类
  * @author: wuyingqiang
@@ -22,5 +24,8 @@ public class BaseQueryReq {
 
     @ApiModelProperty(value = "搜索值")
     private String searchValue;
+
+    @ApiModelProperty(value = "搜索id集合值")
+    private List<Long> queryIds;
 
 }

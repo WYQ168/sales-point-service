@@ -1,6 +1,8 @@
 package com.sales.app.mapper;
 
-import com.sales.app.domain.entity.Order;import com.sales.app.domain.request.IntegralOrderReq;import com.sales.app.domain.response.IntegralOrderResp;import java.util.List;
+import com.sales.app.domain.entity.Order;import com.sales.app.domain.request.IntegralOrderReq;
+import com.sales.app.domain.request.OrderQueryReq;
+import com.sales.app.domain.response.IntegralOrderResp;import java.util.List;
 
 public interface OrderMapper {
     int deleteByPrimaryKey(String orderId);
@@ -36,4 +38,12 @@ public interface OrderMapper {
      * @return 礼包待付款的订单列表
      */
     List<Order> selectUnpaidGiftOrderList(Long userId);
+
+    /**
+     * 获取商城的订单的列表
+     *
+     * @param req 订单请求类
+     * @return 商城订单列表
+     */
+    List<Order> selectMallOrderList(OrderQueryReq req);
 }

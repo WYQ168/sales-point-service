@@ -24,9 +24,15 @@ public class PerformanceController {
     @Autowired
     private MachineService machineService;
 
-    @ApiOperation(value = "获取我的业绩数据")
+    @ApiOperation(value = "获取我的个人业绩数据")
     @GetMapping("/getPersonalPerformance")
     public BaseResult<PerformanceResp> getPersonalPerformance(BaseQueryReq req){
         return BaseResult.ok(machineService.getPersonalPerformance(req));
+    }
+
+    @ApiOperation(value = "获取我的伙伴业绩数据")
+    @GetMapping("/getPartnerPerformance")
+    public BaseResult<PerformanceResp> getPartnerPerformance(BaseQueryReq req){
+        return BaseResult.ok(machineService.getPartnerPerformance(req));
     }
 }

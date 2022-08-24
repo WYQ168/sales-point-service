@@ -4,6 +4,7 @@ import com.alipay.api.AlipayApiException;
 import com.alipay.api.response.AlipayTradeAppPayResponse;
 import com.sales.app.domain.entity.Order;
 import com.sales.app.domain.request.IntegralOrderReq;
+import com.sales.app.domain.request.OrderQueryReq;
 import com.sales.app.domain.response.IntegralOrderResp;
 import com.sales.app.service.OrderService;
 import com.sales.app.service.SalesProductService;
@@ -61,6 +62,12 @@ public class OrderController {
     @PostMapping("/goAliPay")
     public BaseResult<AlipayTradeAppPayResponse> goAliPay(String orderId) throws AlipayApiException {
         return BaseResult.ok(orderService.goAliPay(orderId));
+    }
+
+    @ApiOperation(value = "商城的订单列表")
+    @GetMapping("/getMallOrderList")
+    public BaseResult<List<Order>> getMallOrderList(OrderQueryReq req){
+        return BaseResult.ok(orderService.getMallOrderList(req));
     }
 
 }

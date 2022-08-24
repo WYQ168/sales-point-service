@@ -1,5 +1,6 @@
 package com.sales.app.service;
 
+import com.alipay.api.AlipayApiException;
 import com.sales.app.domain.entity.Order;
 import com.sales.app.domain.entity.SalesProduct;
 import com.sales.app.domain.request.ExchangeIntegralReq;
@@ -82,6 +83,6 @@ public interface SalesProductService {
      * @param req 商城购买请求体
      * @return 结果
      */
-    String buyMachineByMall(MachineByMallReq req);
+    String buyMachineByMall(MachineByMallReq req) throws AlipayApiException;
 
 }

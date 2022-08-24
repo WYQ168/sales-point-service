@@ -15,10 +15,7 @@ import com.sales.app.service.MachineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -69,8 +66,33 @@ public class MachineServiceImpl implements MachineService {
         TradingData tradingData = new TradingData();
 
         AppUser appUser = appUserMapper.selectByPrimaryKey(req.getUserId());
-        List<AppUser> userList = appUserMapper.selectPartners(appUser.getRecommendCode());
+        List<AppUser> userList = appUserMapper.selectPartners(appUser.getInviteCode());
         resp.setNewPartnerNumber(userList.size());
+        return resp;
+    }
+
+    @Override
+    public PerformanceResp getPartnerPerformance(BaseQueryReq req) {
+        PerformanceResp resp = new PerformanceResp();
+        AppUser appUser = appUserMapper.selectByPrimaryKey(req.getUserId());
+        List<AppUser> partner = appUserMapper.selectListByInviteCode(appUser.getInviteCode());
+        List<Long> bindingByIds = new ArrayList<>();
+        if(!partner.isEmpty()){
+            bindingByIds = partner.stream().map(AppUser::getUserId).collect(Collectors.toList());
+        }
+        req.setQueryIds(bindingByIds);
+        List<Machine> partnerMachines = machineMapper.selectPartnerMachineList(req);
+        Map<String, List<Machine>> collect = partnerMachines.stream().collect((Collectors.groupingBy(item -> item.getMachineType())));
+        List<MerchantsData> merchantsData = new ArrayList<>();
+        for(String key: collect.keySet()){
+            MerchantsData data = new MerchantsData().setMerchantsType(key).setMerchantsNumber(collect.get(key).size());
+            merchantsData.add(data);
+        }
+        resp.setNewMerchantsList(merchantsData);
+        // TODO 交易数据统计
+        TradingData tradingData = new TradingData();
+
+        resp.setNewPartnerNumber(partner.size());
         return resp;
     }
 }

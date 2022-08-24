@@ -2,7 +2,9 @@ package com.sales.app.service;
 
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.response.AlipayTradeAppPayResponse;
+import com.sales.app.domain.entity.Order;
 import com.sales.app.domain.request.IntegralOrderReq;
+import com.sales.app.domain.request.OrderQueryReq;
 import com.sales.app.domain.request.TradeInfoReq;
 import com.sales.app.domain.response.IntegralOrderResp;
 
@@ -31,9 +33,18 @@ public interface OrderService {
 
     /**
      * 发起订单的支付，获取网站支付的链接
+     *
      * @param orderId 订单id
-     * @return
+     * @return 支付结果
      */
     AlipayTradeAppPayResponse goAliPay(String orderId) throws AlipayApiException;
+
+    /**
+     * 获取商城的订单的列表
+     *
+     * @param req 订单请求类
+     * @return 商城订单列表
+     */
+    List<Order> getMallOrderList(OrderQueryReq req);
 
 }

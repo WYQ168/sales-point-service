@@ -20,7 +20,7 @@ public class MachineByMallReq {
     @ApiModelProperty(value = "地址")
     private String addressId;
 
-    @ApiModelProperty(value = "购买数量")
+    @ApiModelProperty(value = "购买商品的数量")
     private Integer machineAmount;
 
     @ApiModelProperty(value = "用户id")
@@ -32,7 +32,10 @@ public class MachineByMallReq {
     @ApiModelProperty(value = "购买方式：现金支付、流通券支付")
     private String buyType;
 
-    @ApiModelProperty(value = "流通券数量")
+    @ApiModelProperty(value = "流通券使用数量")
     private Integer noteAmount;
+
+    @ApiModelProperty(value = "商品名字")
+    private String goodName;
 
 }

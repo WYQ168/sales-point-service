@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Data
-@AllArgsConstructor
 public class AliPayConstants {
 
     /**
