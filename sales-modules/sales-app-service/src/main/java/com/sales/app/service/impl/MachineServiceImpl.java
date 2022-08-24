@@ -3,6 +3,7 @@ package com.sales.app.service.impl;
 import com.sales.app.constants.MembershipLevelConstants;
 import com.sales.app.domain.entity.AppUser;
 import com.sales.app.domain.entity.Machine;
+import com.sales.app.domain.entity.MerchantRelation;
 import com.sales.app.domain.pojo.MerchantsData;
 import com.sales.app.domain.pojo.TradingData;
 import com.sales.app.domain.request.BaseQueryReq;
@@ -11,6 +12,7 @@ import com.sales.app.domain.request.MyMachineReq;
 import com.sales.app.domain.response.PerformanceResp;
 import com.sales.app.mapper.AppUserMapper;
 import com.sales.app.mapper.MachineMapper;
+import com.sales.app.mapper.MerchantRelationMapper;
 import com.sales.app.service.MachineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,6 +35,9 @@ public class MachineServiceImpl implements MachineService {
     @Autowired
     private AppUserMapper appUserMapper;
 
+    @Autowired
+    private MerchantRelationMapper merchantRelationMapper;
+
     @Override
     public List<Machine> getMyMachineList(MyMachineReq req) {
         List<Machine> machines = machineMapper.selectMyMachineList(req);
@@ -47,8 +52,13 @@ public class MachineServiceImpl implements MachineService {
             item.setBindingTime(new Date());
             machineMapper.updateByPrimaryKeySelective(item);
         });
-
-        return 1;
+        // 新增商户关系
+        MerchantRelation merchantRelation = new MerchantRelation();
+        merchantRelation.setRelationId(UUID.randomUUID().toString().replace("-",""));
+        merchantRelation.setUserId(req.getUserId());
+        merchantRelation.setMerchantId(req.getIssuedUserId());
+        merchantRelation.setCreateTime(new Date());
+        return merchantRelationMapper.insert(merchantRelation);
     }
 
     @Override

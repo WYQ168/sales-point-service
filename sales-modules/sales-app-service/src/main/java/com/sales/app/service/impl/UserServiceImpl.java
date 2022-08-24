@@ -2,19 +2,24 @@ package com.sales.app.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.sales.app.domain.entity.AppUser;
+import com.sales.app.domain.entity.MerchantRelation;
 import com.sales.app.domain.entity.Wallet;
-import com.sales.app.domain.request.PartnerReq;
+import com.sales.app.domain.request.UserInfoReq;
 import com.sales.app.domain.request.UpdateUserInfoReq;
 import com.sales.app.enums.SystemEnum;
 import com.sales.app.mapper.AppUserMapper;
+import com.sales.app.mapper.MerchantRelationMapper;
 import com.sales.app.mapper.WalletMapper;
 import com.sales.app.service.UserService;
+import com.sales.common.core.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 /**
  * @description: 用户业务层
@@ -30,14 +35,40 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private WalletMapper walletMapper;
 
+    @Autowired
+    private MerchantRelationMapper merchantRelationMapper;
+
     @Override
     public AppUser getUserInfoById(Long userId) {
         return appUserMapper.selectByPrimaryKey(userId);
     }
 
     @Override
-    public List<AppUser> getPartnersByCondition(PartnerReq req) {
-        return appUserMapper.selectPartnersByCondition(req);
+    public List<AppUser> getPartnersByCondition(UserInfoReq req) {
+        AppUser user = appUserMapper.selectByPrimaryKey(req.getUserId());
+        List<AppUser> appUsers = appUserMapper.selectListByInviteCode(user.getInviteCode());
+        if(appUsers != null && appUsers.size()>0){
+            if(!StringUtils.isEmpty(req.getPhone())){
+                appUsers = appUsers.stream().filter(item->item.getPhoneMember().contains(req.getPhone())).collect(Collectors.toList());
+            }
+            if(!StringUtils.isEmpty(req.getUserName())){
+                appUsers = appUsers.stream().filter(item->item.getUserName().contains(req.getUserName())).collect(Collectors.toList());
+            }
+        }
+        return appUsers;
+    }
+
+    @Override
+    public List<AppUser> getMerchantByCondition(UserInfoReq req) {
+        // 通过商户关系表查询我的商户有多少
+        List<MerchantRelation> merchantRelations = merchantRelationMapper.selectRelationByUserId(req.getUserId());
+
+        List<Long> merchantIds = new ArrayList<>();
+        if(merchantRelations != null && merchantRelations.size() > 0){
+            merchantIds = merchantRelations.stream().map(MerchantRelation::getMerchantId).collect(Collectors.toList());
+        }
+        List<AppUser> users = appUserMapper.selectMyMerchantList(merchantIds);
+        return users;
     }
 
     @Override

@@ -2,7 +2,7 @@ package com.sales.app.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.sales.app.domain.entity.AppUser;
-import com.sales.app.domain.request.PartnerReq;
+import com.sales.app.domain.request.UserInfoReq;
 import com.sales.app.domain.request.UpdateUserInfoReq;
 
 import java.util.List;
@@ -20,10 +20,18 @@ public interface UserService {
     /**
      * 通过请求条件获取伙伴列表
      *
-     * @param req 我的伙伴请求体
+     * @param req 用户信息请求体
      * @return 伙伴信息列表
      */
-    List<AppUser> getPartnersByCondition(PartnerReq req);
+    List<AppUser> getPartnersByCondition(UserInfoReq req);
+
+    /**
+     * 通过请求条件获取商户列表
+     *
+     * @param req 用户信息请求体
+     * @return 商户信息列表
+     */
+    List<AppUser> getMerchantByCondition(UserInfoReq req);
 
     /**
      * 用户注册接口

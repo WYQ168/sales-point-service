@@ -349,4 +349,17 @@
       </if>
     </where>
   </select>
+
+  <select id="selectMyMerchantList" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from t_app_user
+    <where>
+          <if test="merchantIds != null and merchantIds.size() != 0">
+            user_id in
+            <foreach collection="merchantIds" item="merchantId" open="(" separator="," close=")">
+              #{merchantId,jdbcType=BIGINT}
+            </foreach>
+          </if>
+    </where>
+  </select>
 </mapper>
