@@ -28,18 +28,6 @@ public class MachineManagerController {
     @Autowired
     private MachineManagerService machineManagerService;
 
-    @ApiOperation(value = "添加商城商品")
-    @PostMapping("/addMachine")
-    public BaseResult<Integer> addMachine(@RequestBody SalesProduct machine){
-        return BaseResult.ok(machineManagerService.addMachine(machine));
-    }
-
-    @ApiOperation(value = "修改机具状态")
-    @PostMapping("/updateProductStatus")
-    public BaseResult<Integer> updateProductStatus(@RequestBody MachineUpdateReq req){
-        return BaseResult.ok(machineManagerService.updateProductStatus(req));
-    }
-
     @ApiOperation(value = "查询机具列表")
     @GetMapping("/selectMachineList")
     public BaseResult<List<Machine>> selectMachineList(MachineQueryReq req){

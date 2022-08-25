@@ -2,7 +2,7 @@ package com.sales.system.service;
 
 import com.sales.system.domain.request.IntegralOrderReq;
 
-public interface IntegralService {
+public interface IntegralManagerService {
 
     /**
      * 审核积分兑换的订单

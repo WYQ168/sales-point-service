@@ -13,10 +13,10 @@ public interface MachineManagerService {
     /**
      * 添加机具产品
      *
-     * @param machine 机具实体类
+     * @param salesProduct 机具产品实体类
      * @return 新增结果
      */
-    Integer addMachine(SalesProduct machine);
+    Integer addSalesProduct(SalesProduct salesProduct);
 
     /**
      * 更新机具产品对应状态

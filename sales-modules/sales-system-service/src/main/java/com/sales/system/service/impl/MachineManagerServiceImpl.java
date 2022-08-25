@@ -35,10 +35,10 @@ public class MachineManagerServiceImpl implements MachineManagerService {
     private MachineMapper machineMapper;
 
     @Override
-    public Integer addMachine(SalesProduct machine) {
-        machine.setCreateBy(SecurityUtils.getUserId())
+    public Integer addSalesProduct(SalesProduct salesProduct) {
+        salesProduct.setCreateBy(SecurityUtils.getUserId())
         .setCreateTime(new Date());
-        return salesProductMapper.insert(machine);
+        return salesProductMapper.insert(salesProduct);
     }
 
     @Override

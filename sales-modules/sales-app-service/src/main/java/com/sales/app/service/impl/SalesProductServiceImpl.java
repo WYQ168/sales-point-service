@@ -13,7 +13,6 @@ import com.sales.app.enums.MachineStatusEnum;
 import com.sales.app.enums.OrderStatusEnum;
 import com.sales.app.enums.OrderTypeEnum;
 import com.sales.app.mapper.*;
-import com.sales.app.service.OrderService;
 import com.sales.app.service.SalesProductService;
 import com.sales.app.utils.MathUtil;
 import com.sales.common.core.exception.ServiceException;
@@ -53,9 +52,6 @@ public class SalesProductServiceImpl implements SalesProductService {
 
     @Autowired
     private CurrencyNoteMapper currencyNoteMapper;
-
-    @Autowired
-    private OrderService orderService;
 
     @Override
     public List<SalesProduct> getProductList(MallProductReq req) {

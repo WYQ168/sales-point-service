@@ -1,5 +1,7 @@
 package com.sales.system.domain.request;
 
+import com.sales.system.domain.entity.Machine;
+import com.sales.system.domain.entity.SalesProduct;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -12,14 +14,9 @@ import lombok.Data;
 
 @Data
 @ApiModel(value = "机具产品更新请求体")
-public class MachineUpdateReq {
-
-    @ApiModelProperty(value = "产品id")
-    private Long productId;
+public class MachineUpdateReq extends SalesProduct {
 
     @ApiModelProperty(value = "上下架状态")
     private Integer status;
 
-    @ApiModelProperty(value = "删除状态")
-    private Integer delFlag;
 }

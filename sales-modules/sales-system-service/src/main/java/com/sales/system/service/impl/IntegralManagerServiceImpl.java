@@ -2,9 +2,8 @@ package com.sales.system.service.impl;
 
 import com.sales.system.domain.entity.Order;
 import com.sales.system.domain.request.IntegralOrderReq;
-import com.sales.system.enums.OrderStatusEnum;
 import com.sales.system.mapper.OrderMapper;
-import com.sales.system.service.IntegralService;
+import com.sales.system.service.IntegralManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +16,7 @@ import java.util.Date;
  */
 
 @Service
-public class IntegralServiceImpl implements IntegralService {
+public class IntegralManagerServiceImpl implements IntegralManagerService {
 
     @Autowired
     private OrderMapper orderMapper;
