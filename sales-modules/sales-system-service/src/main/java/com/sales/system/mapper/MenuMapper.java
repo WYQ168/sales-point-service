@@ -1,4 +1,4 @@
-package com.sales.system.domain.entity;
+package com.sales.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.sales.system.domain.entity.Menu;
