@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "系统用户Api", value = "UserController")
 @RestController
-@RequestMapping(value = "/sysUser")
+    @RequestMapping(value = "/sysUser")
 @AllArgsConstructor
 public class SysUserController {
 
@@ -39,7 +39,6 @@ public class SysUserController {
 
     @RequestMapping(value = "/getRouterData", method = RequestMethod.GET)
     public BaseResult<?> getRouterData() {
-
         return BaseResult.ok(menuService.getRouterData());
     }
 

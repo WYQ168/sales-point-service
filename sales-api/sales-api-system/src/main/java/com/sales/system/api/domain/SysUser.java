@@ -30,7 +30,7 @@ public class SysUser extends BaseEntity {
      * 用户权限
      */
     @ApiModelProperty(value = "用户权限")
-    private Integer sysPermission;
+    private String sysPermission;
 
     /**
      * 伙伴等级

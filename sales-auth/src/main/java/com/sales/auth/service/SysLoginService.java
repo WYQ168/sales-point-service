@@ -75,7 +75,7 @@ public class SysLoginService implements BaseLogin {
         // 登陆用户信息转换
         SysUser user = SysUser.builder()
                 .sysUserId(checkUserObject.getLong("sysUserId"))
-                .sysPermission(checkUserObject.getInteger("sysPermission"))
+                .sysPermission(checkUserObject.getString("sysPermission"))
                 .partnerLevel(checkUserObject.getInteger("partnerLevel"))
                 .sysUsername(checkUserObject.getString("sysUsername"))
                 .sysPassword(checkUserObject.getString("sysPassword"))

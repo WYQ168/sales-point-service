@@ -94,7 +94,6 @@ public class MenuManagerServiceImpl implements MenuManagerService {
             menuPojo.setMeta(meta);
             menuPojo.setAlwaysShow(true);
             menuPojo.setRedirect("noRedirect");
-
             List<MenuPojo> voTwoList = new ArrayList<>();
             for (Menu menu1 : twoList) {
                 MenuPojo menuTwoPojo = new MenuPojo();
@@ -109,7 +108,6 @@ public class MenuManagerServiceImpl implements MenuManagerService {
                 voTwoList.add(menuTwoPojo);
             }
             menuPojo.setChildren(voTwoList);
-
             voList.add(menuPojo);
         }
         return voList;
