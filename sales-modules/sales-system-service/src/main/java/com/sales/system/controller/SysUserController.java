@@ -4,10 +4,12 @@ import com.alibaba.fastjson.JSONObject;
 import com.sales.common.core.constant.SecurityConstants;
 import com.sales.common.core.domain.BaseResult;
 import com.sales.system.domain.entity.SysUser;
+import com.sales.system.service.MenuManagerService;
 import com.sales.system.service.SysUserService;
 import com.sales.system.utils.UserDataUtils;
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "系统用户Api", value = "UserController")
@@ -17,11 +19,13 @@ import org.springframework.web.bind.annotation.*;
 public class SysUserController {
 
     private SysUserService sysUserService;
+    @Autowired
+    private MenuManagerService menuService;
 
     @GetMapping("/info/{username}")
     public BaseResult<JSONObject> getSysUserInfo(@PathVariable("username") String username, @RequestHeader(SecurityConstants.FROM_SOURCE) String source) {
         JSONObject loginUser = sysUserService.getSysUserInfo(username);
-        System.out.println(loginUser);
+        System.out.println("==========" + loginUser);
         return BaseResult.ok(loginUser);
     }
 
@@ -32,11 +36,11 @@ public class SysUserController {
         return BaseResult.ok(sysUser);
     }
 
+
     @RequestMapping(value = "/getRouterData", method = RequestMethod.GET)
     public BaseResult<?> getRouterData() {
-       // return BaseResult.ok(menuService.getRouterData());
-        return null;
-    }
 
+        return BaseResult.ok(menuService.getRouterData());
+    }
 
 }

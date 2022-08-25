@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 用户服务降级处理
- * 
+ *
  * @author sales
  */
 @Component

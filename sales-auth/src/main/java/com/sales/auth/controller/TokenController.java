@@ -61,7 +61,6 @@ public class TokenController {
      */
     @PostMapping("login")
     public BaseResult<AuthTokenInfo> login(@RequestBody @Valid LoginBody loginBody) {
-        System.out.println("=====" + loginBody);
         if (!LoginType.isInclude(loginBody.getLoginType())) {
             return BaseResult.fail(ErrorCodeEnum.ERR_LOGIN_TYPE);
         }
@@ -117,6 +116,7 @@ public class TokenController {
      * @param registerBody
      * @return
      */
+/*
     @PostMapping("register")
     public BaseResult<?> register(@RequestBody @Valid RegisterBody registerBody) {
         verifyUserPhone(registerBody.getPhone());
@@ -131,6 +131,7 @@ public class TokenController {
         }
         return BaseResult.ok();
     }
+*/
 
     /**
      * 判断改手机号是否存在

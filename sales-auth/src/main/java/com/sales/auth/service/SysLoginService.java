@@ -74,23 +74,22 @@ public class SysLoginService implements BaseLogin {
         }
         // 登陆用户信息转换
         SysUser user = SysUser.builder()
-                .id(checkUserObject.getLong("id"))
-                .avatarImg(checkUserObject.getString("avatarImg"))
-                .email(checkUserObject.getString("email"))
-                .enabled(checkUserObject.getShort("enabled"))
-                .password(checkUserObject.getString("password"))
-                .username(checkUserObject.getString("username"))
-                .phone(checkUserObject.getString("phone"))
-                .delFlag(checkUserObject.getShort("delFlag"))
-                .authenticateFlag(checkUserObject.getShort("authenticateFlag"))
-                .fddUserId(checkUserObject.getString("fddUserId"))
+                .sysUserId(checkUserObject.getLong("sysUserId"))
+                .sysPermission(checkUserObject.getInteger("sysPermission"))
+                .partnerLevel(checkUserObject.getInteger("partnerLevel"))
+                .sysUsername(checkUserObject.getString("sysUsername"))
+                .sysPassword(checkUserObject.getString("sysPassword"))
+                .sysPhone(checkUserObject.getString("sysPhone"))
+                .realName(checkUserObject.getString("realName"))
+                .identityNumber(checkUserObject.getString("identityNumber"))
+                .verifiedStatus(checkUserObject.getInteger("verifiedStatus"))
+                .delFlag(checkUserObject.getInteger("delFlag"))
                 .build();
-
         if (UserStatus.DELETED.getCode().equals(user.getDelFlag())) {
             recordLoginInfo(username, Constants.LOGIN_FAIL, "对不起，您的账号已被删除");
             throw new ServiceException("对不起，您的账号：" + username + " 已被删除");
         }
-        if (!SecurityUtils.matchesPassword(password, user.getPassword())) {
+        if (!SecurityUtils.matchesPassword(password, user.getSysPassword())) {
             recordLoginInfo(username, Constants.LOGIN_FAIL, "用户密码错误");
             throw new ServiceException("用户不存在/密码错误");
         }
@@ -100,7 +99,7 @@ public class SysLoginService implements BaseLogin {
         LoginUser loginUser = new LoginUser();
         loginUser.setSysUser(user);
         loginUser.setToken(token);
-        loginUser.setUserid(user.getId());
+        loginUser.setUserid(user.getSysUserId());
         loginUser.setUserType(userInfo.getString("userType"));
         loginUser.setUsername(userInfo.getString("username"));
         loginUser.setLoginTime((Long) userInfo.get("loginTime"));
@@ -129,17 +128,18 @@ public class SysLoginService implements BaseLogin {
         recordLoginInfo(loginName, Constants.LOGOUT, "退出成功");
     }
 
+
     /**
      * 注册
      */
-    public void register(RegisterBody registerBody) {
+    /*public void register(RegisterBody registerBody) {
         if (!registerBody.getPassword().equals(registerBody.getPassword2())) {
             throw new ServiceException("两次输入的密码不一致");
         }
         // 注册系统用户信息
         SysUser sysUser = new SysUser();
-        sysUser.setPhone(registerBody.getPhone());
-        sysUser.setUsername(UserConstants.DZQZ_USER + NanoIdUtils.randomNanoId());
+        sysUser.setSysPhone(registerBody.getPhone());
+        sysUser.setSysUsername(UserConstants.DZQZ_USER + NanoIdUtils.randomNanoId());
         sysUser.setPassword(SecurityUtils.encryptPassword(registerBody.getPassword()));
         sysUser.setEnabled(StatusType.ENABLE.getCode());
         sysUser.setAuthenticateFlag(StatusType.UNENABLE.getCode());
@@ -149,7 +149,8 @@ public class SysLoginService implements BaseLogin {
             throw new ServiceException(registerResult.getMsg());
         }
         recordLoginInfo(sysUser.getUsername(), Constants.REGISTER, "注册成功");
-    }
+    }*/
+
 
 
     /**
@@ -197,7 +198,8 @@ public class SysLoginService implements BaseLogin {
      * @param passWordModifyReq
      * @return
      */
-    public Boolean modifyPassWord(PassWordModifyReq passWordModifyReq) {
+/*
+  public Boolean modifyPassWord(PassWordModifyReq passWordModifyReq) {
         // 判断短信验证码是否正确
         String resultString = redisService.getCacheObject(Constants.SMS_CODE_KEY + passWordModifyReq.getUuid());
         if (!resultString.equalsIgnoreCase(passWordModifyReq.getSmsCode())) {
@@ -215,4 +217,6 @@ public class SysLoginService implements BaseLogin {
         redisService.deleteObject(Constants.SMS_CODE_KEY + passWordModifyReq.getUuid());
         return Boolean.TRUE;
     }
+*/
+
 }

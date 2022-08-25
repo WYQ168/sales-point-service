@@ -1,12 +1,13 @@
 package com.sales.system.api.domain;
 
+import com.sales.common.core.web.domain.BaseEntity;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -18,110 +19,94 @@ import java.util.Date;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class SysUser implements Serializable {
+public class SysUser extends BaseEntity {
     /**
-     * ID
+     * 系统用户id
      */
-    @ApiModelProperty(value = "ID")
-    private Long id;
+    @ApiModelProperty(value = "系统用户id")
+    private Long sysUserId;
 
     /**
-     * 头像
+     * 用户权限
      */
-    @ApiModelProperty(value = "头像")
-    private String avatarImg;
+    @ApiModelProperty(value = "用户权限")
+    private Integer sysPermission;
 
     /**
-     * 邮箱
+     * 伙伴等级
      */
-    @ApiModelProperty(value = "邮箱")
-    private String email;
-
-    /**
-     * 状态：1启用、0禁用
-     */
-    @ApiModelProperty(value = "状态：1启用、0禁用")
-    private Short enabled;
-
-    /**
-     * 密码
-     */
-    @ApiModelProperty(value = "密码")
-    private String password;
+    @ApiModelProperty(value = "伙伴等级")
+    private Integer partnerLevel;
 
     /**
      * 用户名
      */
     @ApiModelProperty(value = "用户名")
-    private String username;
+    private String sysUsername;
 
     /**
-     * 部门名称
+     * 密码
      */
-    @ApiModelProperty(value = "部门名称")
-    private Long deptId;
+    @ApiModelProperty(value = "密码")
+    private String sysPassword;
 
     /**
-     * 手机号码
+     * 手机号
      */
-    @ApiModelProperty(value = "手机号码")
-    private String phone;
+    @ApiModelProperty(value = "手机号")
+    private String sysPhone;
 
     /**
-     * 昵称
+     * 真实名字
      */
-    @ApiModelProperty(value = "昵称")
-    private String nickName;
+    @ApiModelProperty(value = "真实名字")
+    private String realName;
 
     /**
-     * 性别
+     * 身份证号
      */
-    @ApiModelProperty(value = "性别")
-    private String sex;
+    @ApiModelProperty(value = "身份证号")
+    private String identityNumber;
 
     /**
-     * 删除状态：1删除、0未删除
+     * 实名认证状态 0-未认证 1-已认证
      */
-    @ApiModelProperty(value = "删除状态：1删除、0未删除")
-    private Short delFlag;
+    @ApiModelProperty(value = "实名认证状态 0-未认证 1-已认证")
+    private Integer verifiedStatus;
 
     /**
-     * 年龄
+     * 人脸认证状态 0-未认证 1-已认证
      */
-    @ApiModelProperty(value = "年龄")
-    private Integer age;
+    @ApiModelProperty(value = "人脸认证状态 0-未认证 1-已认证")
+    private Integer faceAuthentication;
 
     /**
-     * 真实姓名
+     * 删除标志 0-未删除 1-删除
      */
-    @ApiModelProperty(value = "真实姓名")
-    private String name;
+    @ApiModelProperty(value = "删除标志 0-未删除 1-删除")
+    private Integer delFlag;
 
     /**
-     * 人脸认证状态：1已认证、0未认证
+     * 创建人
      */
-    @ApiModelProperty(value = "人脸认证状态：1已认证、0未认证")
-    private Short authenticateFlag;
+    @ApiModelProperty(value = "创建人")
+    private Long createBy;
 
     /**
-     * 最后修改密码的日期
+     * 创建时间
      */
-    @ApiModelProperty(value = "最后修改密码的日期")
-    private Date lastPasswordResetTime;
-
-    /**
-     * 创建日期
-     */
-    @ApiModelProperty(value = "创建日期")
+    @ApiModelProperty(value = "创建时间")
     private Date createTime;
+
+    /**
+     * 更新人
+     */
+    @ApiModelProperty(value = "更新人")
+    private Long updateBy;
 
     /**
      * 更新时间
      */
     @ApiModelProperty(value = "更新时间")
     private Date updateTime;
-
-    /** 法大大用户id*/
-    private String fddUserId;
-
 }

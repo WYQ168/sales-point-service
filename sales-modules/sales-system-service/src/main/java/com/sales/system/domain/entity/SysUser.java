@@ -1,5 +1,6 @@
 package com.sales.system.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
@@ -10,6 +11,7 @@ import lombok.Data;
  */
 @ApiModel(value = "com-sales-system-domain-entity-SysUser")
 @Data
+@TableName("t_sys_user")
 public class SysUser {
     /**
      * 系统用户id

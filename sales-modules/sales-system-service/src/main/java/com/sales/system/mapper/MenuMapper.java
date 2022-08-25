@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.sales.system.domain.entity.Menu;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface MenuMapper extends BaseMapper<Menu> {
     int deleteByPrimaryKey(Long id);
@@ -17,4 +19,6 @@ public interface MenuMapper extends BaseMapper<Menu> {
     int updateByPrimaryKeySelective(Menu record);
 
     int updateByPrimaryKey(Menu record);
+
+    List<Menu> getMenuByUserId(Long id);
 }

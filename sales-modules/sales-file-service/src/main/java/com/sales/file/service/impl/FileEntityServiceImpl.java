@@ -34,7 +34,7 @@ public class FileEntityServiceImpl implements FileEntityService {
             userId = user.getUserId();
         } else {
             SysUser sysUser = SecurityUtils.getSysUserData();
-            userId = sysUser.getId();
+            userId = sysUser.getSysUserId();
         }
         FileInfo fileInfo = new FileInfo();
         fileInfo.setFileId(UUID.randomUUID().toString().replaceAll("-", ""));

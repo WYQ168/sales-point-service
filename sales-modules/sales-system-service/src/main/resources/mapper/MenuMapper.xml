@@ -25,12 +25,12 @@
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, i_frame, `name`, component, pid, sort, icon, `path`, `cache`, hidden, component_name, 
+    id, i_frame, `name`, component, pid, sort, icon, `path`, `cache`, hidden, component_name,
     permission, `type`, del_flag, create_time, update_time, create_by, update_by
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
+    select
     <include refid="Base_Column_List" />
     from t_menu
     where id = #{id,jdbcType=BIGINT}
@@ -42,17 +42,17 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sales.system.domain.entity.Menu" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into t_menu (i_frame, `name`, component, 
-      pid, sort, icon, `path`, 
-      `cache`, hidden, component_name, 
-      permission, `type`, del_flag, 
-      create_time, update_time, create_by, 
+    insert into t_menu (i_frame, `name`, component,
+      pid, sort, icon, `path`,
+      `cache`, hidden, component_name,
+      permission, `type`, del_flag,
+      create_time, update_time, create_by,
       update_by)
-    values (#{iFrame,jdbcType=BOOLEAN}, #{name,jdbcType=VARCHAR}, #{component,jdbcType=VARCHAR}, 
-      #{pid,jdbcType=BIGINT}, #{sort,jdbcType=INTEGER}, #{icon,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}, 
-      #{cache,jdbcType=BOOLEAN}, #{hidden,jdbcType=BOOLEAN}, #{componentName,jdbcType=VARCHAR}, 
-      #{permission,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT}, #{delFlag,jdbcType=BOOLEAN}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=BIGINT}, 
+    values (#{iFrame,jdbcType=BOOLEAN}, #{name,jdbcType=VARCHAR}, #{component,jdbcType=VARCHAR},
+      #{pid,jdbcType=BIGINT}, #{sort,jdbcType=INTEGER}, #{icon,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR},
+      #{cache,jdbcType=BOOLEAN}, #{hidden,jdbcType=BOOLEAN}, #{componentName,jdbcType=VARCHAR},
+      #{permission,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT}, #{delFlag,jdbcType=BOOLEAN},
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=BIGINT},
       #{updateBy,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sales.system.domain.entity.Menu" useGeneratedKeys="true">
@@ -245,4 +245,10 @@
       update_by = #{updateBy,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <!--    <select id="getMenuByUserId" resultMap="BaseResultMap">
+        SELECT m.*
+        FROM user_roles ur
+                 INNER JOIN roles_menus rm ON ur.role_id = rm.role_id
+                 INNER JOIN menu m ON m.id = rm.menu_id
+    </select>-->
 </mapper>

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * 用户服务
- * 
+ *
  * @author sales
  */
 @FeignClient(contextId = "remoteUserService", value = ServiceNameConstants.SYSTEM_SERVICE, fallbackFactory = RemoteSysUserFallbackFactory.class)

@@ -3,6 +3,7 @@ package com.sales.system.service.impl;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.sales.common.core.exception.BaseException;
 import com.sales.system.domain.entity.Menu;
+import com.sales.system.domain.pojo.MenuPojo;
 import com.sales.system.mapper.MenuMapper;
 import com.sales.system.domain.entity.SysUser;
 import com.sales.system.domain.response.MenuResp;
@@ -73,4 +74,46 @@ public class MenuManagerServiceImpl implements MenuManagerService {
         checkMenu.setComponentName(menu.getComponentName());
         menuMapper.updateById(checkMenu);
     }
+
+    @Override
+    public List<MenuPojo> getRouterData() {
+        SysUser sysUser = UserDataUtils.getUserData();
+        List<Menu> menuList = menuMapper.getMenuByUserId(sysUser.getSysUserId());
+        List<MenuPojo> voList = new ArrayList<>();
+        List<Menu> oneList = menuList.stream().filter(entity -> entity.getPid() == 0L || Objects.isNull(entity.getPid())).collect(Collectors.toList());
+        for (Menu menu : oneList) {
+            List<Menu> twoList = menuList.stream().filter(entity -> !Objects.isNull(entity.getPid()) && entity.getPid().equals(menu.getId())).collect(Collectors.toList());
+            MenuPojo menuPojo = new MenuPojo();
+            menuPojo.setName(menu.getComponentName());
+            menuPojo.setPath(menu.getPath());
+            menuPojo.setHidden(menu.getHidden());
+            menuPojo.setComponent(Objects.isNull(menu.getComponent()) ? "Layout" : menu.getComponent());
+            MenuPojo.meta meta = new MenuPojo.meta();
+            meta.setTitle(menu.getName());
+            meta.setIcon(menu.getIcon());
+            menuPojo.setMeta(meta);
+            menuPojo.setAlwaysShow(true);
+            menuPojo.setRedirect("noRedirect");
+
+            List<MenuPojo> voTwoList = new ArrayList<>();
+            for (Menu menu1 : twoList) {
+                MenuPojo menuTwoPojo = new MenuPojo();
+                menuTwoPojo.setName(menu1.getComponentName());
+                menuTwoPojo.setPath(menu1.getPath());
+                menuTwoPojo.setHidden(menu1.getHidden());
+                menuTwoPojo.setComponent(Objects.isNull(menu1.getComponent()) ? "Layout" : menu1.getComponent());
+                MenuPojo.meta metaTwo = new MenuPojo.meta();
+                metaTwo.setTitle(menu1.getName());
+                metaTwo.setIcon(menu1.getIcon());
+                menuTwoPojo.setMeta(metaTwo);
+                voTwoList.add(menuTwoPojo);
+            }
+            menuPojo.setChildren(voTwoList);
+
+            voList.add(menuPojo);
+        }
+        return voList;
+    }
+
+
 }

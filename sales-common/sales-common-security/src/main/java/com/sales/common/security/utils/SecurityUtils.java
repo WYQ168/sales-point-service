@@ -31,9 +31,9 @@ public class SecurityUtils {
     private static SecurityUtils securityUtils;
 
     @PostConstruct
-    public void init(){
-        securityUtils=this;
-        securityUtils.redisService=this.redisService;
+    public void init() {
+        securityUtils = this;
+        securityUtils.redisService = this.redisService;
     }
 
     /**
@@ -56,12 +56,14 @@ public class SecurityUtils {
     public static String getUserKey() {
         return SecurityContextHolder.getUserKey();
     }
+
     /**
      * 获取用户key
      */
     public static String getUserType() {
         return SecurityContextHolder.getUserKey();
     }
+
     /**
      * 获取登录用户信息
      */
@@ -73,6 +75,7 @@ public class SecurityUtils {
      * 获取请求token
      */
     public static String getToken() {
+        System.out.println("============" + ServletUtils.getRequest());
         return getToken(ServletUtils.getRequest());
     }
 
@@ -87,18 +90,19 @@ public class SecurityUtils {
 
     /**
      * 获取用户信息
+     *
      * @return
      */
-    public static SysUser getSysUserData(){
-        String token=getToken();
-        LoginUser loginUser = securityUtils.redisService.getCacheObject("login_tokens:"+token);
-        if (Objects.isNull(loginUser)){
+    public static SysUser getSysUserData() {
+        String token = getToken();
+        LoginUser loginUser = securityUtils.redisService.getCacheObject("login_tokens:" + token);
+        if (Objects.isNull(loginUser)) {
             throw new BaseException("请先登录");
         }
-        SysUser sysUser=null;
+        SysUser sysUser = null;
         try {
-            sysUser=loginUser.getSysUser();
-        }catch (Exception e){
+            sysUser = loginUser.getSysUser();
+        } catch (Exception e) {
             throw new BaseException("请先登录");
         }
         return sysUser;
@@ -106,18 +110,19 @@ public class SecurityUtils {
 
     /**
      * 获取用户信息
+     *
      * @return
      */
-    public static AppUser getUserData(){
-        String token=getToken();
-        LoginUser loginUser = securityUtils.redisService.getCacheObject("login_tokens:"+token);
-        if (Objects.isNull(loginUser)){
+    public static AppUser getUserData() {
+        String token = getToken();
+        LoginUser loginUser = securityUtils.redisService.getCacheObject("login_tokens:" + token);
+        if (Objects.isNull(loginUser)) {
             throw new BaseException("请先登录");
         }
         AppUser user = null;
         try {
-            user=loginUser.getUser();
-        }catch (Exception e){
+            user = loginUser.getUser();
+        } catch (Exception e) {
             throw new BaseException("请先登录");
         }
         return user;
@@ -166,9 +171,10 @@ public class SecurityUtils {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         return passwordEncoder.matches(rawPassword, encodedPassword);
     }
-    public static void main(String[] arg){
+
+    public static void main(String[] arg) {
         System.out.println(encryptPassword("123456"));
-        System.out.println(matchesPassword("123456","$2a$10$SWpY5lDTIRrYZnPnJtYj0eydZCpt3DFiHyGWpcxCEmF8CeTJ2WWly"));
+        System.out.println(matchesPassword("123456", "$2a$10$SWpY5lDTIRrYZnPnJtYj0eydZCpt3DFiHyGWpcxCEmF8CeTJ2WWly"));
     }
 
 }
