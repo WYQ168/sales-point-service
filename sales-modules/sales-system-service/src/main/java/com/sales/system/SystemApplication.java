@@ -13,7 +13,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SystemApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(SystemApplication.class, args);
+        System.out.println("(♥◠‿◠)ﾉﾞ  管理端服务启动成功   ლ(´ڡ`ლ)ﾞ  \n");
+
     }
 
 }
