@@ -241,4 +241,24 @@
       deduction_setting = #{deductionSetting,jdbcType=VARCHAR}
     where machine_id = #{machineId,jdbcType=BIGINT}
   </update>
+
+  <select id="selectAllByCondition" resultType="com.sales.system.domain.entity.Machine">
+    select
+    machine_id, p.product_id, machine_type, machine_amount, machine_number, machine_status,
+    binding_by, binding_time, purchase_by, purchase_time, activation_by, activation_time,
+    replacement_by, replacement_time, unbundling_by, unbundling_time
+    from t_machine m
+    left join t_sales_product p on m.product_id = p.product_id
+    where
+    p.del_flag = 0
+    <if test="endTime != null and startTime != null">
+      and #{startTime,jdbcType=TIMESTAMP} &lt;= m.purchase_time &lt;= #{endTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="productSn != null">
+      and locate (#{productSn,jdbcType=VARCHAR},p.product_sn) > 0
+    </if>
+    <if test="machineStatus != null">
+      and m.machine_status = #{machineStatus,jdbcType=INTEGER}
+    </if>
+  </select>
 </mapper>

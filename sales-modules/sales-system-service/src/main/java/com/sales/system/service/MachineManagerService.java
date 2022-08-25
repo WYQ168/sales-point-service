@@ -1,6 +1,7 @@
 package com.sales.system.service;
 
 import com.sales.system.domain.entity.GiftActivity;
+import com.sales.system.domain.entity.Machine;
 import com.sales.system.domain.entity.SalesProduct;
 import com.sales.system.domain.request.MachineQueryReq;
 import com.sales.system.domain.request.MachineUpdateReq;
@@ -31,7 +32,7 @@ public interface MachineManagerService {
      * @param req 机具查询实体
      * @return 机具列表
      */
-    List<SalesProduct> selectAllByCondition(MachineQueryReq req);
+    List<Machine> selectAllByCondition(MachineQueryReq req);
 
     /**
      * 添加礼包

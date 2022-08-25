@@ -10,6 +10,7 @@ import com.sales.app.domain.request.BaseQueryReq;
 import com.sales.app.domain.request.MachineIssuedReq;
 import com.sales.app.domain.request.MyMachineReq;
 import com.sales.app.domain.response.PerformanceResp;
+import com.sales.app.enums.MachineStatusEnum;
 import com.sales.app.mapper.AppUserMapper;
 import com.sales.app.mapper.MachineMapper;
 import com.sales.app.mapper.MerchantRelationMapper;
@@ -50,6 +51,7 @@ public class MachineServiceImpl implements MachineService {
         req.getProductList().stream().forEach(item->{
             item.setBindingBy(req.getIssuedUserId());
             item.setBindingTime(new Date());
+            item.setMachineStatus(MachineStatusEnum.ISSUED.getCode());
             machineMapper.updateByPrimaryKeySelective(item);
         });
         // 新增商户关系

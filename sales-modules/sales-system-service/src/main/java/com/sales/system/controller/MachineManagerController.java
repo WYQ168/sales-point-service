@@ -2,6 +2,7 @@ package com.sales.system.controller;
 
 import com.sales.common.core.domain.BaseResult;
 import com.sales.system.domain.entity.GiftActivity;
+import com.sales.system.domain.entity.Machine;
 import com.sales.system.domain.entity.SalesProduct;
 import com.sales.system.domain.request.MachineQueryReq;
 import com.sales.system.domain.request.MachineUpdateReq;
@@ -27,7 +28,7 @@ public class MachineManagerController {
     @Autowired
     private MachineManagerService machineManagerService;
 
-    @ApiOperation(value = "添加机具")
+    @ApiOperation(value = "添加商城商品")
     @PostMapping("/addMachine")
     public BaseResult<Integer> addMachine(@RequestBody SalesProduct machine){
         return BaseResult.ok(machineManagerService.addMachine(machine));
@@ -40,8 +41,8 @@ public class MachineManagerController {
     }
 
     @ApiOperation(value = "查询机具列表")
-    @GetMapping("/selectAllByCondition")
-    public BaseResult<List<SalesProduct>> selectAllByCondition(MachineQueryReq req){
+    @GetMapping("/selectMachineList")
+    public BaseResult<List<Machine>> selectMachineList(MachineQueryReq req){
         return BaseResult.ok(machineManagerService.selectAllByCondition(req));
     }
 
