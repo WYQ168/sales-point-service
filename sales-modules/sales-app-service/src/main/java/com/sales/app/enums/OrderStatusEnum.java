@@ -34,18 +34,12 @@ public enum OrderStatusEnum {
 
     private Integer state;
     private String stateName;
-    private String nextTrackName;
 
     OrderStatusEnum(Integer state, String stateName){
         this.state = state;
         this.stateName = stateName;
     }
 
-    OrderStatusEnum(Integer state, String stateName , String nextTrackName){
-        this.state = state;
-        this.stateName = stateName;
-        this.nextTrackName = nextTrackName;
-    }
     
 }
 

@@ -2,10 +2,12 @@ package com.sales.system.service.impl;
 
 import com.sales.common.security.utils.SecurityUtils;
 import com.sales.system.domain.entity.GiftActivity;
+import com.sales.system.domain.entity.Machine;
 import com.sales.system.domain.entity.SalesProduct;
 import com.sales.system.domain.request.MachineQueryReq;
 import com.sales.system.domain.request.MachineUpdateReq;
 import com.sales.system.mapper.GiftActivityMapper;
+import com.sales.system.mapper.MachineMapper;
 import com.sales.system.mapper.SalesProductMapper;
 import com.sales.system.service.MachineManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,9 @@ public class MachineManagerServiceImpl implements MachineManagerService {
     @Autowired
     private GiftActivityMapper giftActivityMapper;
 
+    @Autowired
+    private MachineMapper machineMapper;
+
     @Override
     public Integer addMachine(SalesProduct machine) {
         machine.setCreateBy(SecurityUtils.getUserId())
@@ -48,8 +53,8 @@ public class MachineManagerServiceImpl implements MachineManagerService {
     }
 
     @Override
-    public List<SalesProduct> selectAllByCondition(MachineQueryReq req) {
-        return salesProductMapper.selectAllByCondition(req);
+    public List<Machine> selectAllByCondition(MachineQueryReq req) {
+        return machineMapper.selectAllByCondition(req);
     }
 
     @Override

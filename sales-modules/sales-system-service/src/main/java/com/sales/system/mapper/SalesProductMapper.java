@@ -19,10 +19,10 @@ public interface SalesProductMapper {
     int updateByPrimaryKey(SalesProduct record);
 
     /**
-     * 更新机具产品对应状态
+     * 根据条件查询机具产品列表
      *
      * @param req 机具产品更新请求体
-     * @return 更新结果
+     * @return 机具列表
      */
     List<SalesProduct> selectAllByCondition(MachineQueryReq req);
 }

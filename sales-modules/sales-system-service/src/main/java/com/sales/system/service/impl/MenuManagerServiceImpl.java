@@ -3,7 +3,7 @@ package com.sales.system.service.impl;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.sales.common.core.exception.BaseException;
 import com.sales.system.domain.entity.Menu;
-import com.sales.system.domain.entity.MenuMapper;
+import com.sales.system.mapper.MenuMapper;
 import com.sales.system.domain.entity.SysUser;
 import com.sales.system.domain.response.MenuResp;
 import com.sales.system.enums.SystemEnum;

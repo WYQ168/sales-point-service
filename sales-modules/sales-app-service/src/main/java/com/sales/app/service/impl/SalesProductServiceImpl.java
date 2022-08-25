@@ -2,7 +2,6 @@ package com.sales.app.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alipay.api.AlipayApiException;
-import com.alipay.api.response.AlipayTradeAppPayResponse;
 import com.sales.app.constants.StewardLevelConstants;
 import com.sales.app.domain.entity.*;
 import com.sales.app.domain.request.ExchangeIntegralReq;
@@ -10,6 +9,7 @@ import com.sales.app.domain.request.GiftMachineReq;
 import com.sales.app.domain.request.MachineByMallReq;
 import com.sales.app.domain.request.MallProductReq;
 import com.sales.app.domain.response.GiftActivityResp;
+import com.sales.app.enums.MachineStatusEnum;
 import com.sales.app.enums.OrderStatusEnum;
 import com.sales.app.enums.OrderTypeEnum;
 import com.sales.app.mapper.*;
@@ -123,6 +123,7 @@ public class SalesProductServiceImpl implements SalesProductService {
         order.setOrderId(UUID.randomUUID().toString().replace("-", ""))
                 .setUserId(req.getUserId())
                 .setTotalPrice(req.getGiftAmount())
+                .setGoodInfo(jsonObject.toJSONString())
                 .setOrderNo(OrderTypeEnum.GIFT.getOrderCode() + simpleDateFormat + MathUtil.getRandomNumString(5))
                 .setOrderType(OrderTypeEnum.GIFT.getOrderType())
                 .setOrderStatus(OrderStatusEnum.NEW_ORDER.getState())
@@ -137,7 +138,7 @@ public class SalesProductServiceImpl implements SalesProductService {
         machine.setMachineAmount(req.getGiftQuantity())
                 .setPurchaseBy(req.getUserId())
                 .setPurchaseTime(new Date())
-                .setMachineStatus(0)
+                .setMachineStatus(MachineStatusEnum.NO_ACTIVATION.getCode())
                 .setMachineType(req.getParentLabel());
 
         return machineMapper.insert(machine);
