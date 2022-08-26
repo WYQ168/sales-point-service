@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sales.app.mapper.SysConfigMapper">
+
+    <resultMap type="com.sales.app.domain.entity.SysConfig" id="SysConfigResult">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="value" column="value"/>
+        <result property="comment" column="comment"/>
+        <result property="description" column="description"/>
+        <result property="outsideAccess" column="outside_access"/>
+        <result property="version" column="version"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="isActive" column="is_active"/>
+    </resultMap>
+
+    <sql id="selectSysConfigVo">
+        select id,
+               name,
+               value,
+               comment,
+               description,
+               outside_access,
+               version,
+               create_time,
+               update_time,
+               is_active
+        from t_sys_config
+    </sql>
+
+    <select id="selectSysConfigList" parameterType="com.sales.app.domain.entity.SysConfig" resultMap="SysConfigResult">
+        <include refid="selectSysConfigVo"/>
+        <where>
+            <if test="id != null ">and id = #{id}</if>
+            <if test="name != null  and name != '' ">and name = #{name}</if>
+            <if test="value != null  and value != '' ">and value = #{value}</if>
+            <if test="comment != null  and comment != '' ">and comment = #{comment}</if>
+            <if test="description != null  and description != '' ">and description = #{description}</if>
+            <if test="outsideAccess != null ">and outside_access = #{outsideAccess}</if>
+            <if test="version != null ">and version = #{version}</if>
+            <if test="createTime != null ">and create_time = #{createTime}</if>
+            <if test="updateTime != null ">and update_time = #{updateTime}</if>
+            <if test="isActive != null ">and is_active = #{isActive}</if>
+        </where>
+    </select>
+
+    <select id="selectSysConfigById" parameterType="Long" resultMap="SysConfigResult">
+        <include refid="selectSysConfigVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertSysConfig" parameterType="com.sales.app.domain.entity.SysConfig" useGeneratedKeys="true" keyProperty="id">
+        insert into t_sys_config
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null  and name != ''  ">name,</if>
+            <if test="value != null  and value != ''  ">value,</if>
+            <if test="comment != null  and comment != ''  ">comment,</if>
+            <if test="description != null  and description != ''  ">description,</if>
+            <if test="outsideAccess != null  ">outside_access,</if>
+            <if test="version != null  ">version,</if>
+            <if test="createTime != null  ">create_time,</if>
+            <if test="updateTime != null  ">update_time,</if>
+            <if test="isActive != null  ">is_active,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null  and name != ''  ">#{name},</if>
+            <if test="value != null  and value != ''  ">#{value},</if>
+            <if test="comment != null  and comment != ''  ">#{comment},</if>
+            <if test="description != null  and description != ''  ">#{description},</if>
+            <if test="outsideAccess != null  ">#{outsideAccess},</if>
+            <if test="version != null  ">#{version},</if>
+            <if test="createTime != null  ">#{createTime},</if>
+            <if test="updateTime != null  ">#{updateTime},</if>
+            <if test="isActive != null  ">#{isActive},</if>
+        </trim>
+    </insert>
+
+    <update id="updateSysConfig" parameterType="com.sales.app.domain.entity.SysConfig">
+        update t_sys_config
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null  and name != ''  ">name = #{name},</if>
+            <if test="value != null  and value != ''  ">value = #{value},</if>
+            <if test="comment != null  and comment != ''  ">comment = #{comment},</if>
+            <if test="description != null  and description != ''  ">description = #{description},</if>
+            <if test="outsideAccess != null  ">outside_access = #{outsideAccess},</if>
+            <if test="version != null  ">version = #{version},</if>
+            <if test="createTime != null  ">create_time = #{createTime},</if>
+            <if test="updateTime != null  ">update_time = #{updateTime},</if>
+            <if test="isActive != null  ">is_active = #{isActive},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteSysConfigById" parameterType="Long">
+        delete
+        from t_sys_config
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteSysConfigByIds" parameterType="String">
+        delete from t_sys_config where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

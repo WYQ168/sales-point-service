@@ -10,9 +10,7 @@ public enum SystemEnum {
     USER_TYPE_MANAGE("系统用户","2"),
     AUTHENTICATE_FLAG_ON("已认证","1"),
     AUTHENTICATE_FLAG_NOT("未认证","0"),
-    SYSTEM_CONFIG_PREFIX("系统配置redis前缀","system_config:")
-
-    ;
+    SYSTEM_CONFIG_PREFIX("系统配置redis前缀","system_config:");
 
     private final String label;
     private final String value;

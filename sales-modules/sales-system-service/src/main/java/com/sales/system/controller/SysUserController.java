@@ -25,7 +25,6 @@ public class SysUserController {
     @GetMapping("/info/{username}")
     public BaseResult<JSONObject> getSysUserInfo(@PathVariable("username") String username, @RequestHeader(SecurityConstants.FROM_SOURCE) String source) {
         JSONObject loginUser = sysUserService.getSysUserInfo(username);
-        System.out.println("==========" + loginUser);
         return BaseResult.ok(loginUser);
     }
 
@@ -41,5 +40,16 @@ public class SysUserController {
     public BaseResult<?> getRouterData() {
         return BaseResult.ok(menuService.getRouterData());
     }
+
+    /**
+     * 获取角色列表
+     *
+     * @return
+     */
+    @RequestMapping(value = "/getSysUserList", method = RequestMethod.GET)
+    public BaseResult<?> getSysUserList() {
+        return BaseResult.ok(null);
+    }
+
 
 }
