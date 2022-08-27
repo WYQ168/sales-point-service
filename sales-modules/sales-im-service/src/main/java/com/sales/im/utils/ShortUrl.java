@@ -16,7 +16,7 @@ public class ShortUrl {
  
 	public static void main(String[] args) {
 
-		String url = "http://121.40.157.24:8848/nacos/#/configeditor?serverId=center&dataId=sales-im-service-dev.yml&group=DEFAULT_GROUP&namespace=dev&edasAppName=&edasAppId=&searchDataId=&searchGroup=&pageSize=10&pageNo=1";
+		String url = "http://47.92.80.167:8848/nacos/#/configeditor?serverId=center&dataId=sales-im-service-dev.yml&group=DEFAULT_GROUP&namespace=dev&edasAppName=&edasAppId=&searchDataId=&searchGroup=&pageSize=10&pageNo=1";
 		String transShortUrl = transShortUrl(url);
  
 		System.out.println("转换后：" + transShortUrl);

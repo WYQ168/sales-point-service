@@ -14,12 +14,12 @@ spring:
     nacos:
       discovery:
         # 服务注册地址
-        server-addr: 121.40.157.24:8848
+        server-addr: 47.92.80.167:8848
         namespace: ${spring.profiles.active}
         service: ${spring.application.name}
       config:
         # 配置中心地址
-        server-addr: 121.40.157.24:8848
+        server-addr: 47.92.80.167:8848
         namespace: ${spring.profiles.active}
         # 配置文件格式
         file-extension: yml

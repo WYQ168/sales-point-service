@@ -16,13 +16,13 @@ spring:
     nacos:
       discovery:
         # 服务注册地址
-        server-addr: 121.40.157.24:8848
+        server-addr: 47.92.80.167:8848
         namespace: ${spring.profiles.active}
         enabled: true
         register-enabled: true
       config:
         # 配置中心地址
-        server-addr: 121.40.157.24:8848
+        server-addr: 47.92.80.167:8848
         namespace: ${spring.profiles.active}
         # 配置文件格式
         file-extension: yml
@@ -34,12 +34,12 @@ spring:
       eager: true
       transport:
         # 控制台地址
-        dashboard: 121.40.157.24:8718
+        dashboard: 47.92.80.167:8718
       # nacos配置持久化
       datasource:
         ds1:
           nacos:
-            server-addr: 121.40.157.24:8848
+            server-addr: 47.92.80.167:8848
             dataId: sentinel-sales-gateway
             groupId: DEFAULT_GROUP
             data-type: json
