@@ -10,7 +10,6 @@
 
     <groupId>com.sales</groupId>
     <artifactId>sales-auth</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
 
     <dependencies>
         <!-- SpringCloud Alibaba Nacos -->
